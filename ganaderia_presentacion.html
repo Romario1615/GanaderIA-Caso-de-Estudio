@@ -1,0 +1,1221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GanaderIA — Presentación</title>
+<link rel="stylesheet" href="css/styles.css">
+<script type="module">
+  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+  mermaid.initialize({
+    startOnLoad: false,
+    theme: 'base',
+    themeVariables: {
+      primaryColor: '#0f2b12',
+      primaryBorderColor: '#4caf50',
+      primaryTextColor: '#e8f5e9',
+      lineColor: '#66bb6a',
+      secondaryColor: '#081a09',
+      tertiaryColor: '#0a200c',
+      clusterBkg: '#060e07',
+      clusterBorder: '#388e3c',
+      titleColor: '#a5d6a7',
+      edgeLabelBackground: '#060e07',
+      nodeTextColor: '#e8f5e9'
+    }
+  });
+  window.mermaid = mermaid;
+</script>
+</head>
+<body>
+
+<div class="topbar"><div class="topbar-fill" id="barFill" style="width:9.09%"></div></div>
+
+<!-- ═══ PANEL DE NAVEGACIÓN ════════════════ -->
+<nav class="nav-panel" id="navPanel">
+  <div class="nav-head">
+    <img src="assets/logo-ganaderia.png" class="nav-logo" alt="GanaderIA">
+    <div class="nav-sub">ISTJ · Romario Alban · Abril 2026</div>
+  </div>
+  <div class="nav-list" id="navList"></div>
+  <div class="nav-foot">
+    <div class="nav-counter" id="navCtr">Slide 1 de 11</div>
+    <div class="nav-hint">← → teclas de navegación</div>
+  </div>
+</nav>
+<div class="nav-toggle" id="navTog" onclick="togglePanel()">❯</div>
+
+<!-- ═══ S1 · PORTADA ═══════════════════════ -->
+<div class="slide active fin" id="s1">
+  <div class="cv-logos">
+    <img src="assets/logo-istj-real.svg" class="logo-istj" alt="ISTJ — Tecnología Superior en IA">
+    <img src="assets/logo-ganaderia.png" class="logo-app" alt="GanaderIA">
+  </div>
+  <div class="cv-badge">
+    <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="#81c784" stroke-width="2"><path d="M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7z"/></svg>
+    Proyecto de Titulación · ISTJ 2026
+  </div>
+  <h1 class="cv-title">Ganader<span>IA</span></h1>
+  <div class="cv-line"></div>
+  <p class="cv-sub">Agente de inteligencia artificial para monitoreo<br>y educación en la industria ganadera bovina</p>
+  <div class="cv-context">La ganadería bovina en Ecuador mueve más de $1,200 millones al año. El 70 % de los productores son pequeños y medianos, sin acceso a datos ni asesoría permanente. GanaderIA cambia eso.</div>
+  <div class="cv-meta">
+    <span><svg fill="none" stroke="#66bb6a" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>Romario Alban</span>
+    <span><svg fill="none" stroke="#66bb6a" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>ISTJ — Tecnología Superior en IA</span>
+    <span><svg fill="none" stroke="#66bb6a" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Abril 2026</span>
+  </div>
+</div>
+
+<!-- ═══ S2 · PROBLEMA ══════════════════════ -->
+<div class="slide" id="s2">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>Diagnóstico del sector</div>
+  <h2 class="htitle">¿Cuál es el problema?</h2><div class="hline"></div>
+  <div class="stat-strip">
+    <span class="stat-chip">📊 70 % sin sistema de registro digital</span>
+    <span class="stat-chip">💸 $150–300 perdidos/vaca/año por fallas reproductivas</span>
+    <span class="stat-chip">⏱ 48–72 h de reacción ante una enfermedad</span>
+  </div>
+  <div class="prob-grid">
+    <div class="prob-card">
+      <div class="prob-icon"><svg fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/><line x1="3" y1="3" x2="21" y2="21"/></svg></div>
+      <div class="prob-ttl">Decisiones a ciegas</div>
+      <div class="prob-txt">El ganadero actúa sin datos en tiempo real sobre salud, reproducción ni producción. Interviene cuando el daño ya ocurrió.</div>
+      <div class="mini-kpi mk-r">
+        <div class="mini-kpi-head"><span>Registros incompletos</span><strong>70%</strong></div>
+        <div class="mini-chart mc-donut">
+          <svg viewBox="0 0 220 62" aria-hidden="true">
+            <circle class="mc-track" cx="34" cy="31" r="18"></circle>
+            <circle class="mc-value" cx="34" cy="31" r="18" transform="rotate(-90 34 31)" stroke-dasharray="79 113"></circle>
+            <text class="mc-center" x="34" y="35">70</text>
+            <text class="mc-label" x="64" y="27">7 de cada 10 fincas</text>
+            <text class="mc-sub" x="64" y="42">sin registro digital confiable</text>
+          </svg>
+        </div>
+        <div class="mini-kpi-note">KPI crítico: sin trazabilidad digital estable</div>
+      </div>
+      <div class="prob-cost">⚠ Sin datos = reacción tardía = pérdida inevitable</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon"><svg fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+      <div class="prob-ttl">Información dispersa</div>
+      <div class="prob-txt">Libretas, WhatsApp, Excel. Cuando el trabajador se va, se va el historial. No hay una fuente única de verdad del hato.</div>
+      <div class="mini-kpi mk-b">
+        <div class="mini-kpi-head"><span>Fuentes aisladas por finca</span><strong>5</strong></div>
+        <div class="mini-chart mc-bar">
+          <svg viewBox="0 0 220 62" aria-hidden="true">
+            <line x1="12" y1="50" x2="206" y2="50"></line>
+            <rect x="20" y="34" width="18" height="16"></rect>
+            <rect x="52" y="27" width="18" height="23"></rect>
+            <rect x="84" y="21" width="18" height="29"></rect>
+            <rect x="116" y="16" width="18" height="34"></rect>
+            <rect x="148" y="10" width="18" height="40"></rect>
+            <text class="mc-sub" x="20" y="59">L</text>
+            <text class="mc-sub" x="53" y="59">W</text>
+            <text class="mc-sub" x="85" y="59">E</text>
+            <text class="mc-sub" x="117" y="59">V</text>
+            <text class="mc-sub" x="149" y="59">A</text>
+            <text class="mc-label" x="176" y="22">5 canales</text>
+            <text class="mc-sub" x="176" y="37">sin unificar</text>
+          </svg>
+        </div>
+        <div class="mini-kpi-note">Cuantos más canales, mayor pérdida de historial</div>
+      </div>
+      <div class="prob-cost">⚠ Cada cambio de personal = pérdida de trazabilidad</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon"><svg fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div>
+      <div class="prob-ttl">Pérdidas invisibles</div>
+      <div class="prob-txt">Enfermedades no detectadas, partos sin asistencia, vacas con 100+ días abiertos. El productor sabe que pierde, pero no cuánto.</div>
+      <div class="mini-kpi mk-o">
+        <div class="mini-kpi-head"><span>Pérdida diaria estimada</span><strong>$4.2</strong></div>
+        <div class="mini-chart mc-line">
+          <svg viewBox="0 0 220 62" aria-hidden="true">
+            <line x1="12" y1="50" x2="206" y2="50"></line>
+            <path class="mc-area" d="M16 50 L40 46 L64 44 L88 39 L112 35 L136 31 L160 26 L184 22 L184 50 Z"></path>
+            <polyline points="16,50 40,46 64,44 88,39 112,35 136,31 160,26 184,22"></polyline>
+            <circle cx="184" cy="22" r="3"></circle>
+            <text class="mc-label" x="146" y="16">$4.2 / día</text>
+            <text class="mc-sub" x="16" y="59">inicio</text>
+            <text class="mc-sub" x="168" y="59">+ pérdida</text>
+          </svg>
+        </div>
+        <div class="mini-kpi-note">USD por vaca/día fuera de rango reproductivo</div>
+      </div>
+      <div class="prob-cost">⚠ $3–5/vaca/día en días abiertos fuera de rango</div>
+    </div>
+    <div class="prob-card">
+      <div class="prob-icon"><svg fill="none" stroke="#2e7d32" stroke-width="1.8" stroke-linecap="round" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="prob-ttl">Brecha de conocimiento</div>
+      <div class="prob-txt">Sin asesoría técnica permanente. El ganadero sabe que algo está mal, pero no sabe interpretar el dato ni qué acción tomar.</div>
+      <div class="mini-kpi mk-g">
+        <div class="mini-kpi-head"><span>Tiempo medio de respuesta</span><strong>60h</strong></div>
+        <div class="mini-chart mc-gauge">
+          <svg viewBox="0 0 220 62" aria-hidden="true">
+            <rect class="mc-track-rect" x="16" y="24" width="188" height="12" rx="6"></rect>
+            <rect class="mc-value-rect" x="16" y="24" width="156" height="12" rx="6"></rect>
+            <line class="mc-mark" x1="47" y1="18" x2="47" y2="42"></line>
+            <text class="mc-sub" x="32" y="16">ideal 12h</text>
+            <text class="mc-label" x="174" y="21">60h</text>
+            <text class="mc-sub" x="174" y="43">actual</text>
+          </svg>
+        </div>
+        <div class="mini-kpi-note">Ventana crítica sin acción técnica inmediata</div>
+      </div>
+      <div class="prob-cost">⚠ Consulta veterinaria: $50–120 por visita</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S3 · SOLUCIÓN ══════════════════════ -->
+<div class="slide" id="s3">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17" stroke-width="3" stroke-linecap="round"/></svg>Propuesta de valor</div>
+  <h2 class="htitle">La solución: un agente que monitorea y educa</h2><div class="hline"></div>
+  <p class="sol-intro">GanaderIA es un agente conversacional de IA que conecta los datos reales del hato con una base de conocimiento ganadero. No solo alerta cuando algo está mal: <strong>explica qué significa el dato, por qué importa y qué decisión tomar</strong>, en el lenguaje del productor.</p>
+  <div class="sol-diff">
+    <span class="diff-tag">✓ Sin capacitación técnica</span>
+    <span class="diff-tag">✓ Cualquier dispositivo</span>
+    <span class="diff-tag">✓ Lenguaje natural</span>
+    <span class="diff-tag">✓ Datos reales de la finca</span>
+    <span class="diff-tag">✓ Explicaciones, no solo alertas</span>
+    <span class="diff-tag">✓ Disponible 24/7</span>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pil-num">1</div>
+      <div class="pil-ttl">Monitorear</div>
+      <div class="pil-txt">Datos en tiempo real: peso, temperatura, producción de leche, estado reproductivo, vacunaciones, condición corporal.</div>
+      <div class="pil-mini pm-mon">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <line class="pm-axis" x1="14" y1="54" x2="206" y2="54"></line>
+          <polyline class="pm-line-a" points="18,43 44,39 70,41 96,36 122,34 148,30 174,27 200,24"></polyline>
+          <polyline class="pm-line-b" points="18,49 44,47 70,45 96,43 122,40 148,39 174,37 200,35"></polyline>
+          <circle class="pm-dot-a" cx="200" cy="24" r="3"></circle>
+          <circle class="pm-dot-b" cx="200" cy="35" r="3"></circle>
+          <text class="pm-label" x="142" y="16">Leche y temperatura</text>
+          <text class="pm-sub" x="16" y="63">últimos 7 días</text>
+        </svg>
+      </div>
+      <div class="pil-mini pm-mon2">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <circle class="pm-track" cx="34" cy="34" r="16"></circle>
+          <circle class="pm-value" cx="34" cy="34" r="16" transform="rotate(-90 34 34)" stroke-dasharray="92 101"></circle>
+          <text class="pm-center" x="34" y="38">92%</text>
+          <rect class="pm-bar-soft" x="72" y="24" width="132" height="9" rx="4.5"></rect>
+          <rect class="pm-bar-strong" x="72" y="24" width="121" height="9" rx="4.5"></rect>
+          <text class="pm-label" x="72" y="18">Sensores activos en línea</text>
+          <text class="pm-sub" x="72" y="47">latencia media 1.8s</text>
+        </svg>
+      </div>
+      <div class="pil-ex">"La vaca A-042 bajó 4 litros en 3 días consecutivos."</div>
+    </div>
+    <div class="pillar">
+      <div class="pil-num">2</div>
+      <div class="pil-ttl">Alertar</div>
+      <div class="pil-txt">Detección automática de desviaciones con alertas priorizadas por urgencia antes de que el problema escale.</div>
+      <div class="pil-mini pm-alert">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <line class="pm-axis" x1="14" y1="54" x2="206" y2="54"></line>
+          <line class="pm-threshold" x1="14" y1="28" x2="206" y2="28"></line>
+          <rect class="pm-bar" x="20" y="44" width="16" height="10" rx="2"></rect>
+          <rect class="pm-bar" x="44" y="40" width="16" height="14" rx="2"></rect>
+          <rect class="pm-bar" x="68" y="36" width="16" height="18" rx="2"></rect>
+          <rect class="pm-bar" x="92" y="31" width="16" height="23" rx="2"></rect>
+          <rect class="pm-bar" x="116" y="27" width="16" height="27" rx="2"></rect>
+          <rect class="pm-bar" x="140" y="23" width="16" height="31" rx="2"></rect>
+          <rect class="pm-bar-hot" x="164" y="18" width="16" height="36" rx="2"></rect>
+          <rect class="pm-bar-hot" x="188" y="14" width="16" height="40" rx="2"></rect>
+          <text class="pm-label" x="136" y="16">umbral de alerta</text>
+          <text class="pm-sub" x="16" y="63">prioridad creciente</text>
+        </svg>
+      </div>
+      <div class="pil-mini pm-alert2">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <line class="pm-axis" x1="14" y1="54" x2="206" y2="54"></line>
+          <polyline class="pm-line-warn" points="18,48 46,43 74,37 102,32 130,26 158,20 186,15"></polyline>
+          <circle class="pm-dot-warn" cx="186" cy="15" r="3"></circle>
+          <line class="pm-threshold" x1="14" y1="22" x2="206" y2="22"></line>
+          <text class="pm-label" x="128" y="14">tiempo a alerta: 4h</text>
+          <text class="pm-sub" x="16" y="63">detección temprana</text>
+        </svg>
+      </div>
+      <div class="pil-ex">"⚠ B-017 lleva 95 días abiertos — fuera del rango óptimo."</div>
+    </div>
+    <div class="pillar">
+      <div class="pil-num">3</div>
+      <div class="pil-ttl">Educar</div>
+      <div class="pil-txt">Para cada dato: qué es, rango normal, qué implica la desviación y qué acción tomar. Impacto en dinero, no en índices.</div>
+      <div class="pil-mini pm-edu">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <rect class="pm-box" x="16" y="22" width="56" height="20" rx="4"></rect>
+          <rect class="pm-box" x="82" y="22" width="56" height="20" rx="4"></rect>
+          <rect class="pm-box" x="148" y="22" width="56" height="20" rx="4"></rect>
+          <path class="pm-arrow" d="M72 32h10"></path>
+          <path class="pm-arrow" d="M138 32h10"></path>
+          <text class="pm-box-t" x="44" y="35">Dato</text>
+          <text class="pm-box-t" x="110" y="35">Contexto</text>
+          <text class="pm-box-t" x="176" y="35">Acción</text>
+          <text class="pm-label" x="120" y="16">+ impacto económico</text>
+          <text class="pm-sub" x="16" y="61">explicación paso a paso</text>
+        </svg>
+      </div>
+      <div class="pil-mini pm-edu2">
+        <svg viewBox="0 0 220 68" aria-hidden="true">
+          <line class="pm-axis" x1="14" y1="54" x2="206" y2="54"></line>
+          <rect class="pm-bar-soft" x="24" y="38" width="42" height="16" rx="3"></rect>
+          <rect class="pm-bar-soft" x="84" y="30" width="42" height="24" rx="3"></rect>
+          <rect class="pm-bar-strong" x="144" y="21" width="42" height="33" rx="3"></rect>
+          <text class="pm-sub" x="26" y="63">dato</text>
+          <text class="pm-sub" x="86" y="63">entender</text>
+          <text class="pm-sub" x="146" y="63">decidir</text>
+          <text class="pm-label" x="118" y="16">claridad ↑ impacto ↑</text>
+        </svg>
+      </div>
+      <div class="pil-ex">"Los días abiertos óptimos son 60–85. Aquí está el costo."</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S4 · DATOS ═════════════════════════ -->
+<div class="slide" id="s4">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>Ingesta de datos</div>
+  <h2 class="htitle">¿Qué datos levantamos y para qué?</h2><div class="hline"></div>
+  <p class="snote">Cada campo tiene un propósito económico o sanitario concreto. No recopilamos por recopilar: cada dato alimenta una decisión del agente.</p>
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>Categoría</th><th>Dato</th><th>Unidad</th><th>Para qué sirve</th><th>Alerta si…</th></tr></thead>
+      <tbody>
+        <tr><td><span class="tbl-tag tag-r">Reproductivo</span></td><td>Días en leche (DEL)</td><td>días</td><td>Gestionar ciclo productivo y secado</td><td>DEL &gt; 305 sin secado programado</td></tr>
+        <tr><td><span class="tbl-tag tag-r">Reproductivo</span></td><td>Días abiertos</td><td>días</td><td>Detectar falla reproductiva temprana</td><td>Días abiertos &gt; 85</td></tr>
+        <tr><td><span class="tbl-tag tag-r">Reproductivo</span></td><td>Fecha probable de parto</td><td>fecha</td><td>Preparar asistencia y calostro</td><td>Parto en &lt; 7 días sin preparación</td></tr>
+        <tr><td><span class="tbl-tag tag-p">Productivo</span></td><td>Producción diaria de leche</td><td>litros</td><td>Medir eficiencia y detectar mastitis</td><td>Caída &gt; 15 % en 3 días seguidos</td></tr>
+        <tr><td><span class="tbl-tag tag-p">Productivo</span></td><td>Condición corporal (CC)</td><td>escala 1–5</td><td>Ajustar dieta y detectar pérdida de peso</td><td>CC &lt; 2.5 o pérdida &gt; 0.5 en 2 sem.</td></tr>
+        <tr><td><span class="tbl-tag tag-s">Sanitario</span></td><td>Temperatura corporal</td><td>°C</td><td>Detectar fiebre, infección o parto</td><td>&gt; 39.5 °C o &lt; 37.5 °C</td></tr>
+        <tr><td><span class="tbl-tag tag-s">Sanitario</span></td><td>Vacunaciones pendientes</td><td>lista</td><td>Prevenir aftosa, brucelosis, IBR</td><td>Vencimiento en &lt; 15 días</td></tr>
+        <tr><td><span class="tbl-tag tag-a">Alimentación</span></td><td>Consumo de materia seca</td><td>kg/día</td><td>Optimizar costos y detectar anorexia</td><td>Consumo &lt; 2 % del peso vivo</td></tr>
+        <tr><td><span class="tbl-tag tag-t">Trazabilidad</span></td><td>Número de arete (SISA)</td><td>código</td><td>ID oficial para movilización</td><td>Animal sin arete registrado</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="data-areas">
+
+    <!-- Reproductivo -->
+    <div class="area-card ac-r">
+      <div class="area-name">Reproductivo</div>
+      <div class="area-kpi">KPI: días abiertos</div>
+      <div class="area-kpi">KPI: tasa de preñez</div>
+      <div class="area-kpi">KPI: partos previstos</div>
+      <div class="area-mini"><div class="area-mini-box">
+        <svg viewBox="0 0 200 112" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <circle cx="45" cy="62" r="30" fill="none" stroke="rgba(244,143,177,.18)" stroke-width="9"/>
+          <circle cx="45" cy="62" r="30" fill="none" stroke="#f48fb1" stroke-width="9"
+                  stroke-dasharray="160 189" stroke-linecap="round" transform="rotate(-90 45 62)"/>
+          <text x="45" y="57" text-anchor="middle" font-size="14" fill="#ffd5e8" font-weight="800">72</text>
+          <text x="45" y="70" text-anchor="middle" font-size="7" fill="#f48fb1">días abiertos</text>
+          <text x="45" y="106" text-anchor="middle" font-size="6" fill="#9cb8a0">óptimo 60–85 días</text>
+          <text x="90" y="16" font-size="7" fill="#9cb8a0">Tasa preñez</text>
+          <rect x="90" y="20" width="104" height="9" rx="4.5" fill="rgba(244,143,177,.15)"/>
+          <rect x="90" y="20" width="71" height="9" rx="4.5" fill="#f48fb1" opacity=".85"/>
+          <text x="192" y="28" text-anchor="end" font-size="7" fill="#ffd5e8" font-weight="700">68%</text>
+          <text x="90" y="46" font-size="7" fill="#9cb8a0">Partos previstos</text>
+          <rect x="90" y="50" width="104" height="9" rx="4.5" fill="rgba(244,143,177,.15)"/>
+          <rect x="90" y="50" width="62" height="9" rx="4.5" fill="#f48fb1" opacity=".7"/>
+          <text x="192" y="58" text-anchor="end" font-size="7" fill="#ffd5e8" font-weight="700">5/mes</text>
+          <text x="90" y="76" font-size="7" fill="#9cb8a0">DEL promedio</text>
+          <rect x="90" y="80" width="104" height="9" rx="4.5" fill="rgba(244,143,177,.15)"/>
+          <rect x="90" y="80" width="85" height="9" rx="4.5" fill="#f48fb1" opacity=".55"/>
+          <text x="192" y="88" text-anchor="end" font-size="7" fill="#ffd5e8" font-weight="700">218 d</text>
+        </svg>
+      </div></div>
+    </div>
+
+    <!-- Productivo -->
+    <div class="area-card ac-p">
+      <div class="area-name">Productivo</div>
+      <div class="area-kpi">KPI: litros/vaca/día</div>
+      <div class="area-kpi">KPI: variación semanal</div>
+      <div class="area-kpi">KPI: CC promedio</div>
+      <div class="area-mini"><div class="area-mini-box">
+        <svg viewBox="0 0 200 112" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <text x="14" y="13" font-size="7" fill="#9cb8a0">CC promedio</text>
+          <rect x="94" y="4" width="52" height="13" rx="4" fill="rgba(100,181,246,.18)" stroke="#64b5f6" stroke-width="1"/>
+          <text x="120" y="13" text-anchor="middle" font-size="8" fill="#d5ebff" font-weight="800">3.2 / 5</text>
+          <line x1="18" y1="97" x2="188" y2="97" stroke="rgba(100,181,246,.25)" stroke-width="1"/>
+          <line x1="18" y1="50" x2="188" y2="50" stroke="rgba(100,181,246,.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="16" y="49" text-anchor="end" font-size="6.5" fill="#9cb8a0">25L</text>
+          <text x="16" y="97" text-anchor="end" font-size="6.5" fill="#9cb8a0">0</text>
+          <rect x="20"  y="74" width="18" height="23" rx="2" fill="#64b5f6" opacity=".65"/>
+          <rect x="44"  y="68" width="18" height="29" rx="2" fill="#64b5f6" opacity=".72"/>
+          <rect x="68"  y="61" width="18" height="36" rx="2" fill="#64b5f6" opacity=".79"/>
+          <rect x="92"  y="54" width="18" height="43" rx="2" fill="#64b5f6" opacity=".86"/>
+          <rect x="116" y="58" width="18" height="39" rx="2" fill="#64b5f6" opacity=".79"/>
+          <rect x="140" y="50" width="18" height="47" rx="2" fill="#64b5f6"/>
+          <rect x="164" y="53" width="18" height="44" rx="2" fill="#64b5f6" opacity=".86"/>
+          <text x="29"  y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">L</text>
+          <text x="53"  y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">M</text>
+          <text x="77"  y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">X</text>
+          <text x="101" y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">J</text>
+          <text x="125" y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">V</text>
+          <text x="149" y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">S</text>
+          <text x="173" y="107" text-anchor="middle" font-size="6.5" fill="#9cb8a0">D</text>
+          <text x="149" y="44" text-anchor="middle" font-size="7" fill="#d5ebff" font-weight="700">24.6 L prom.</text>
+        </svg>
+      </div></div>
+    </div>
+
+    <!-- Sanitario -->
+    <div class="area-card ac-s">
+      <div class="area-name">Sanitario</div>
+      <div class="area-kpi">KPI: % animales febriles</div>
+      <div class="area-kpi">KPI: vacunas al día</div>
+      <div class="area-kpi">KPI: eventos clínicos</div>
+      <div class="area-mini"><div class="area-mini-box">
+        <svg viewBox="0 0 200 112" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <circle cx="50" cy="60" r="32" fill="none" stroke="rgba(255,183,77,.15)" stroke-width="10"/>
+          <circle cx="50" cy="60" r="32" fill="none" stroke="#ffb74d" stroke-width="10"
+                  stroke-dasharray="183 201" stroke-linecap="round" transform="rotate(-90 50 60)"/>
+          <text x="50" y="55" text-anchor="middle" font-size="14" fill="#ffe7c5" font-weight="800">91%</text>
+          <text x="50" y="68" text-anchor="middle" font-size="7" fill="#ffb74d">vacunas al día</text>
+          <text x="50" y="106" text-anchor="middle" font-size="6" fill="#9cb8a0">meta: &gt; 95%</text>
+          <text x="98" y="18" font-size="7" fill="#9cb8a0">% febriles</text>
+          <rect x="98" y="22" width="96" height="9" rx="4.5" fill="rgba(255,183,77,.15)"/>
+          <rect x="98" y="22" width="10" height="9" rx="4.5" fill="#ef5350" opacity=".9"/>
+          <text x="192" y="30" text-anchor="end" font-size="7" fill="#ffe7c5" font-weight="700">4%</text>
+          <text x="98" y="50" font-size="7" fill="#9cb8a0">Eventos clínicos</text>
+          <text x="98" y="64" font-size="14" fill="#ffe7c5" font-weight="800">7</text>
+          <text x="116" y="64" font-size="7" fill="#ffb74d">este mes</text>
+          <text x="98" y="82" font-size="7" fill="#9cb8a0">Temp. promedio</text>
+          <text x="98" y="97" font-size="13" fill="#ffe7c5" font-weight="800">38.4°C</text>
+          <text x="98" y="108" font-size="6" fill="#9cb8a0">rango normal</text>
+        </svg>
+      </div></div>
+    </div>
+
+    <!-- Alimentación -->
+    <div class="area-card ac-a">
+      <div class="area-name">Alimentación</div>
+      <div class="area-kpi">KPI: kg MS/vaca</div>
+      <div class="area-kpi">KPI: costo ración/día</div>
+      <div class="area-kpi">KPI: eficiencia alimenticia</div>
+      <div class="area-mini"><div class="area-mini-box">
+        <svg viewBox="0 0 200 112" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <text x="14" y="13" font-size="7" fill="#9cb8a0">Eficiencia alimenticia</text>
+          <rect x="14" y="17" width="172" height="9" rx="4.5" fill="rgba(186,104,200,.15)"/>
+          <rect x="14" y="17" width="138" height="9" rx="4.5" fill="#ba68c8" opacity=".8"/>
+          <text x="184" y="25" text-anchor="end" font-size="7" fill="#f4dcff" font-weight="700">80%</text>
+          <line x1="18" y1="88" x2="188" y2="88" stroke="rgba(186,104,200,.25)" stroke-width="1"/>
+          <line x1="18" y1="52" x2="188" y2="52" stroke="rgba(186,104,200,.15)" stroke-width="1" stroke-dasharray="3 2"/>
+          <text x="16" y="51" text-anchor="end" font-size="6.5" fill="#9cb8a0">16</text>
+          <text x="16" y="88" text-anchor="end" font-size="6.5" fill="#9cb8a0">12</text>
+          <path fill="rgba(186,104,200,.2)" d="M22 80 L52 74 L82 70 L112 65 L142 59 L164 52 L188 48 L188 88 L22 88 Z"/>
+          <polyline points="22,80 52,74 82,70 112,65 142,59 164,52 188,48"
+                    fill="none" stroke="#ba68c8" stroke-width="2.5" stroke-linejoin="round"/>
+          <circle cx="188" cy="48" r="4" fill="#ba68c8"/>
+          <text x="184" y="43" text-anchor="end" font-size="7" fill="#f4dcff" font-weight="700">15.2 kg</text>
+          <text x="14" y="103" font-size="7" fill="#9cb8a0">Costo ración/día</text>
+          <text x="136" y="103" font-size="9" fill="#f4dcff" font-weight="800">$3.40</text>
+          <text x="168" y="103" font-size="6.5" fill="#ba68c8">/vaca</text>
+        </svg>
+      </div></div>
+    </div>
+
+    <!-- Trazabilidad -->
+    <div class="area-card ac-t">
+      <div class="area-name">Trazabilidad</div>
+      <div class="area-kpi">KPI: % aretes válidos</div>
+      <div class="area-kpi">KPI: historial completo</div>
+      <div class="area-kpi">KPI: alertas sin ID</div>
+      <div class="area-mini"><div class="area-mini-box">
+        <svg viewBox="0 0 200 112" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
+          <circle cx="45" cy="60" r="30" fill="none" stroke="rgba(77,182,172,.18)" stroke-width="9"/>
+          <circle cx="45" cy="60" r="30" fill="none" stroke="#4db6ac" stroke-width="9"
+                  stroke-dasharray="177 189" stroke-linecap="round" transform="rotate(-90 45 60)"/>
+          <text x="45" y="55" text-anchor="middle" font-size="14" fill="#d4fffa" font-weight="800">94%</text>
+          <text x="45" y="68" text-anchor="middle" font-size="7" fill="#4db6ac">aretes válidos</text>
+          <text x="45" y="106" text-anchor="middle" font-size="6" fill="#9cb8a0">meta: 100%</text>
+          <text x="90" y="18" font-size="7" fill="#9cb8a0">Historial completo</text>
+          <rect x="90" y="22" width="104" height="9" rx="4.5" fill="rgba(77,182,172,.15)"/>
+          <rect x="90" y="22" width="94" height="9" rx="4.5" fill="#4db6ac" opacity=".8"/>
+          <text x="192" y="30" text-anchor="end" font-size="7" fill="#d4fffa" font-weight="700">90%</text>
+          <text x="90" y="48" font-size="7" fill="#9cb8a0">Alertas sin ID</text>
+          <rect x="90" y="52" width="104" height="9" rx="4.5" fill="rgba(77,182,172,.15)"/>
+          <rect x="90" y="52" width="8" height="9" rx="4.5" fill="#ef5350" opacity=".9"/>
+          <text x="192" y="60" text-anchor="end" font-size="7" fill="#d4fffa" font-weight="700">3</text>
+          <text x="90" y="78" font-size="7" fill="#9cb8a0">Total animales</text>
+          <text x="90" y="96" font-size="14" fill="#d4fffa" font-weight="800">124</text>
+          <text x="116" y="96" font-size="7" fill="#4db6ac">registrados</text>
+        </svg>
+      </div></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══ S5 · GRÁFICOS ══════════════════════ -->
+<div class="slide" id="s5">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Visualización de datos</div>
+  <h2 class="htitle">Dashboard integral del hato — operación, salud y objetivos</h2><div class="hline"></div>
+  <div class="dash-kpi-grid">
+    <div class="dash-kpi-card">
+      <div class="dk-label">Producción promedio</div>
+      <div class="dk-value">24.6 L</div>
+      <div class="dk-trend up">▲ +8.3% vs mes anterior</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dk-label">Vacas en alerta</div>
+      <div class="dk-value">18</div>
+      <div class="dk-trend down">▼ -4 casos críticos semana</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dk-label">Cumplimiento sanitario</div>
+      <div class="dk-value">91%</div>
+      <div class="dk-trend up">▲ +6 pts en 30 días</div>
+    </div>
+    <div class="dash-kpi-card">
+      <div class="dk-label">Tiempo respuesta</div>
+      <div class="dk-value">5.2 s</div>
+      <div class="dk-trend up">▲ dentro del objetivo (&lt;6 s)</div>
+    </div>
+  </div>
+  <div class="dash-main">
+    <div class="charts-grid">
+      <div class="chart-card chart-main"><div class="chart-ttl">Barras · Producción diaria por vaca (L) · umbral operativo 22 L</div><canvas id="cvBar"></canvas></div>
+      <div class="chart-card"><div class="chart-ttl">Pastel · Estado sanitario del hato (124)</div><canvas id="cvDonut"></canvas></div>
+      <div class="chart-card"><div class="chart-ttl">Pastel · Distribución de alertas por área</div><canvas id="cvPieArea"></canvas></div>
+      <div class="chart-card chart-wide"><div class="chart-ttl">Línea de tendencia · producción promedio Nov 2025–Abr 2026</div><canvas id="cvLine"></canvas></div>
+      <div class="chart-card chart-wide"><div class="chart-ttl">Barras apiladas · Incidencias semanales por tipo</div><canvas id="cvStack"></canvas></div>
+    </div>
+    <div class="okr-column">
+      <div class="okr-grid">
+        <div class="okr-card">
+          <div class="okr-head">OKR 1 · Eficiencia productiva</div>
+          <div class="okr-kpi">Progreso: 74%</div>
+          <div class="okr-kr">KR1: subir promedio de 22 L a 25 L (83%)</div>
+          <div class="okr-kr">KR2: reducir vacas bajo umbral a &lt;12 (61%)</div>
+        </div>
+        <div class="okr-card">
+          <div class="okr-head">OKR 2 · Salud y prevención</div>
+          <div class="okr-kpi">Progreso: 81%</div>
+          <div class="okr-kr">KR1: vacunación al día &gt; 95% (92%)</div>
+          <div class="okr-kr">KR2: fiebre detectada en &lt;6h (70%)</div>
+        </div>
+        <div class="okr-card">
+          <div class="okr-head">OKR 3 · Decisiones basadas en datos</div>
+          <div class="okr-kpi">Progreso: 68%</div>
+          <div class="okr-kr">KR1: 100% registros digitales diarios (65%)</div>
+          <div class="okr-kr">KR2: 80% consultas resueltas por IA (72%)</div>
+        </div>
+      </div>
+
+      <div class="dash-info-card">
+        <div class="di-title">
+          <svg fill="none" stroke="#66bb6a" stroke-width="2" viewBox="0 0 24 24" width="13" height="13"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="1" fill="#66bb6a"/></svg>
+          Cómo leer este dashboard
+        </div>
+        <div class="di-row">
+          <span class="di-dot" style="background:#4caf50"></span>
+          <span><strong>Barras horizontales</strong> — producción diaria por vaca. Rojo indica animales bajo el umbral de 22 L.</span>
+        </div>
+        <div class="di-row">
+          <span class="di-dot" style="background:#64b5f6"></span>
+          <span><strong>Pastel izquierdo</strong> — estado sanitario del hato: saludable, en observación o requiere atención inmediata.</span>
+        </div>
+        <div class="di-row">
+          <span class="di-dot" style="background:#ff9800"></span>
+          <span><strong>Pastel derecho</strong> — distribución de alertas activas por área: reproductiva, sanitaria, productiva o alimentaria.</span>
+        </div>
+        <div class="di-row">
+          <span class="di-dot" style="background:#a5d6a7"></span>
+          <span><strong>Línea de tendencia</strong> — evolución del promedio de producción en los últimos 6 meses.</span>
+        </div>
+        <div class="di-row">
+          <span class="di-dot" style="background:#7b1fa2"></span>
+          <span><strong>Barras apiladas</strong> — incidencias semanales agrupadas por tipo para detectar patrones recurrentes.</span>
+        </div>
+        <div class="di-note">Datos del hato simulado · 124 animales · Finca piloto Manabí</div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S6 · ARQUITECTURA ══════════════════ -->
+<div class="slide" id="s6">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>Stack tecnológico</div>
+  <h2 class="htitle">Arquitectura de software — cómo se conectan las tecnologías</h2><div class="hline"></div>
+
+  <div class="arch-main">
+
+    <div class="arch-diagram-wrap">
+      <pre class="mermaid" id="archMermaid">
+flowchart TD
+    subgraph IOT["Sensores IoT"]
+        IoT["Sensores IoT · Temperatura, Peso, Produccion"]
+    end
+
+    subgraph FRONT["Capa de Presentacion"]
+        User["Usuario · Navegador / Movil"]
+        React["React + Vite · Chat, Dashboard, SSE"]
+    end
+
+    subgraph APP["Capa de Aplicacion"]
+        FastAPI["FastAPI · Backend Async, Pydantic, SSE"]
+        Agent["LangGraph Agent · Grafo de Estados"]
+    end
+
+    subgraph DATA["Capa de Datos"]
+        DB["PostgreSQL · ACID, JSONB, Historial"]
+        Vector["ChromaDB · Vector Search, Conocimiento"]
+        LLM["Claude Sonnet · LLM, 200k tokens"]
+    end
+
+    IoT     -->|Ingesta periodica| DB
+    User    -->|HTTP y SSE stream| React
+    React   -->|REST API /chat| FastAPI
+    FastAPI -->|invoke| Agent
+    Agent   -->|query_animal_db| DB
+    Agent   -->|search_knowledge_base| Vector
+    Agent   -->|Prompt streaming| LLM
+    LLM     -->|Respuesta| Agent
+      </pre>
+    </div>
+
+    <div class="arch-cards">
+
+      <div class="arch-card" style="--ac:#1565c0">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">Sensores IoT</span>
+          <span class="ac-tag">Hardware</span>
+        </div>
+        <p class="ac-desc">Capturan temperatura corporal, peso y producción de leche en tiempo real. Envían los datos directamente a PostgreSQL para que el agente pueda analizarlos al instante.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#1e88e5">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">React + Vite</span>
+          <span class="ac-tag">Frontend</span>
+        </div>
+        <p class="ac-desc">Interfaz de chat y dashboard. Envía las preguntas del usuario al backend y recibe la respuesta del agente en tiempo real vía SSE (streaming), mostrando cada palabra al instante.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#00897b">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">FastAPI</span>
+          <span class="ac-tag">Backend</span>
+        </div>
+        <p class="ac-desc">Punto de entrada de la API. Valida cada solicitud con Pydantic, invoca al agente LangGraph y retransmite su respuesta en streaming sin bloquear otros usuarios.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#7b1fa2">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">LangGraph Agent</span>
+          <span class="ac-tag">Orquestador</span>
+        </div>
+        <p class="ac-desc">Cerebro del sistema. Decide qué herramientas usar (consultar BD, buscar conocimiento, generar alerta), gestiona reintentos si algo falla y orquesta la respuesta final.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#f57c00">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">PostgreSQL</span>
+          <span class="ac-tag">Base de datos</span>
+        </div>
+        <p class="ac-desc">Almacena todo el historial del hato con garantías ACID. El agente lo consulta para recuperar datos reales del animal antes de generar cualquier respuesta.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#ab47bc">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">ChromaDB</span>
+          <span class="ac-tag">Vector DB</span>
+        </div>
+        <p class="ac-desc">Base de conocimiento veterinario en formato vectorial. El agente busca por significado semántico: "el animal no come" encuentra documentos sobre anorexia bovina automáticamente.</p>
+      </div>
+
+      <div class="arch-card" style="--ac:#43a047">
+        <div class="ac-head">
+          <span class="ac-dot"></span>
+          <span class="ac-name">Claude Sonnet</span>
+          <span class="ac-tag">LLM</span>
+        </div>
+        <p class="ac-desc">Razona sobre los datos y el contexto veterinario para generar una respuesta educativa: explica el dato, cuantifica el impacto económico y recomienda la acción concreta a tomar.</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S7 · POR QUÉ ESTAS TECNOLOGÍAS ════ -->
+<div class="slide" id="s7">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 0 0-2 2v4m6-6h10a2 2 0 0 1 2 2v4M9 3v18m0 0h10a2 2 0 0 0 2-2V9M9 21H5a2 2 0 0 1-2-2V9m0 0h18"/></svg>Decisiones técnicas</div>
+  <h2 class="htitle">¿Por qué estas tecnologías? — Alternativas descartadas</h2><div class="hline"></div>
+  <p class="why-intro">Cada decisión tecnológica fue evaluada contra alternativas reales. El criterio fue: rendimiento en español, costo operativo, control sobre la infraestructura y adecuación al problema ganadero.</p>
+  <div class="why-table-wrap">
+    <table class="why-table">
+      <thead><tr><th>Componente</th><th>✓ Elegimos</th><th>Alternativas evaluadas</th><th>Por qué no las usamos</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>LLM / IA</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>Claude Sonnet 4.5</div></td>
+          <td class="why-alt"><span>GPT-4o</span><span>Gemini 1.5 Pro</span><span>Llama 3</span></td>
+          <td class="why-reason">GPT-4o: inferior en <strong>instrucciones complejas en español técnico</strong> y mayor tasa de alucinaciones veterinarias. Gemini: integración más compleja para tool use. Llama 3: requiere GPU propia, costos de infra elevados.</td>
+        </tr>
+        <tr>
+          <td><strong>Framework agente</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>LangGraph</div></td>
+          <td class="why-alt"><span>LCEL</span><span>AutoGPT</span><span>CrewAI</span></td>
+          <td class="why-reason">LCEL es <strong>lineal</strong> (A→B→C), no permite ciclos ni reintentos. AutoGPT: no determinístico, difícil de auditar en producción. CrewAI: diseñado para múltiples agentes, overhead innecesario para un solo agente experto.</td>
+        </tr>
+        <tr>
+          <td><strong>Backend API</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>FastAPI</div></td>
+          <td class="why-alt"><span>Flask</span><span>Django</span><span>Express.js</span></td>
+          <td class="why-reason">Flask: <strong>síncrono por defecto</strong>, necesita Gunicorn+Eventlet para streaming. Django: ORM y middleware innecesarios para una API de agente. Express.js: cambio de ecosistema Python/ML innecesario.</td>
+        </tr>
+        <tr>
+          <td><strong>Base vectorial</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>ChromaDB</div></td>
+          <td class="why-alt"><span>Pinecone</span><span>Weaviate</span><span>pgvector</span></td>
+          <td class="why-reason">Pinecone: <strong>cloud-only</strong>, costo por query, dependencia externa crítica. Weaviate: complejo de configurar, overhead para corpus pequeño. pgvector: menor precisión ANN, sin índices HNSW optimizados.</td>
+        </tr>
+        <tr>
+          <td><strong>Base relacional</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>PostgreSQL</div></td>
+          <td class="why-alt"><span>MySQL</span><span>MongoDB</span><span>SQLite</span></td>
+          <td class="why-reason">MongoDB: <strong>sin garantías ACID</strong>, inaceptable para registros veterinarios críticos. MySQL: inferior en JSONB y window functions para análisis temporal. SQLite: no escala a múltiples fincas simultáneas.</td>
+        </tr>
+        <tr>
+          <td><strong>Frontend</strong></td>
+          <td><div class="why-chosen"><svg fill="none" stroke="#81c784" stroke-width="2" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>React + Vite</div></td>
+          <td class="why-alt"><span>Vue.js</span><span>Next.js</span><span>Svelte</span></td>
+          <td class="why-reason">Vue.js: menor ecosistema de componentes de chat en tiempo real. Next.js: SSR innecesario para SPA de dashboard, complejidad extra. Svelte: menor madurez para dashboards de streaming con WebSockets.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="why-score-bar"><canvas id="cvWhyScore"></canvas></div>
+</div>
+
+<!-- ═══ S8 · FLUJO + DIAGRAMA TÉCNICO ══════ -->
+<div class="slide" id="s8">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M13 6h3a2 2 0 0 1 2 2v7"/><line x1="6" y1="9" x2="6" y2="21"/></svg>Flujo de consulta</div>
+  <h2 class="htitle">De la pregunta a la decisión — 5 pasos y arquitectura de comunicación</h2><div class="hline"></div>
+  <div class="flow-layout">
+
+    <!-- Pasos (izquierda) -->
+    <div class="flow-steps">
+      <div class="flow-step">
+        <div class="flow-circle">1</div>
+        <div class="flow-content">
+          <div class="flow-ttl">El ganadero pregunta en lenguaje natural</div>
+          <div class="flow-txt">"¿Cómo está la vaca #A-042?" — sin tecnicismos, desde cualquier dispositivo. React captura el mensaje y abre una conexión SSE para recibir la respuesta en tiempo real.</div>
+          <div class="flow-detail">⏱ Latencia cliente → servidor: &lt;50 ms · Protocolo: HTTPS + EventSource SSE</div>
+        </div>
+      </div>
+      <div class="flow-connector"></div>
+      <div class="flow-step">
+        <div class="flow-circle">2</div>
+        <div class="flow-content">
+          <div class="flow-ttl">Recupera datos reales del hato</div>
+          <div class="flow-txt">LangGraph invoca <span class="flow-tool">query_animal_db</span> y consulta PostgreSQL: trae peso, producción diaria (L), días abiertos, historial sanitario, vacunas aplicadas y últimas alertas del animal.</div>
+          <div class="flow-detail">📦 Retorna ~12 campos · Tiempo de query: ~15 ms · Datos en tiempo real</div>
+        </div>
+      </div>
+      <div class="flow-connector"></div>
+      <div class="flow-step">
+        <div class="flow-circle">3</div>
+        <div class="flow-content">
+          <div class="flow-ttl">Enriquece con conocimiento veterinario</div>
+          <div class="flow-txt"><span class="flow-tool">search_knowledge_base</span> convierte la consulta en un embedding y recupera los 5 fragmentos más relevantes de ~500 documentos: protocolos por raza, guías de celo, tablas de umbrales por etapa productiva.</div>
+          <div class="flow-detail">🔍 Top-k = 5 · Similitud coseno · Corpus: ~500 documentos veterinarios</div>
+        </div>
+      </div>
+      <div class="flow-connector"></div>
+      <div class="flow-step">
+        <div class="flow-circle">4</div>
+        <div class="flow-content">
+          <div class="flow-ttl">Evalúa desviaciones y calcula impacto</div>
+          <div class="flow-txt"><span class="flow-tool">generate_alert</span> compara los datos con umbrales específicos por raza, edad y etapa. Si detecta anomalía, crea una alerta con nivel <strong>INFO / WARNING / CRITICAL</strong> y calcula el costo económico acumulado por día de desviación.</div>
+          <div class="flow-detail">⚠ 3 niveles de alerta · Cálculo automático: $pérdida/día según tipo de desviación</div>
+        </div>
+      </div>
+      <div class="flow-connector"></div>
+      <div class="flow-step">
+        <div class="flow-circle">5</div>
+        <div class="flow-content">
+          <div class="flow-ttl">Claude razona, responde y educa en streaming</div>
+          <div class="flow-txt">Claude Sonnet recibe datos + contexto + alertas y genera la respuesta en streaming (SSE): estado actual del animal, tendencia de los últimos 6 meses, costo acumulado de la desviación y acción concreta recomendada — en el idioma del ganadero.</div>
+          <div class="flow-detail">⚡ Streaming: ~20 tokens/chunk · Tiempo total end-to-end: &lt;5 s · Respuesta educativa y accionable</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Diagrama de comunicación técnica (derecha) -->
+    <div class="comm-diagram">
+      <div class="comm-node cn-user">
+        <div class="cn-label">👤 Ganadero / Usuario</div>
+        <div class="cn-sub">Navegador · móvil · tablet · sin instalación requerida</div>
+      </div>
+      <div class="cn-protocol">HTTPS POST /api/chat · autenticación JWT · payload JSON</div>
+      <div class="comm-node cn-react">
+        <div class="cn-label">⚛ React + Vite (SPA)</div>
+        <div class="cn-sub">Valida input · abre EventSource SSE · renderiza tokens en tiempo real · muestra alertas con color por nivel de criticidad</div>
+      </div>
+      <div class="cn-protocol">GET /api/stream · chunks SSE · ~20 tokens por evento</div>
+      <div class="comm-node cn-api">
+        <div class="cn-label">⚡ FastAPI + Pydantic</div>
+        <div class="cn-sub">Valida esquema de entrada · verifica JWT · instancia el agente · retransmite StreamingResponse con los eventos SSE de LangGraph</div>
+      </div>
+      <div class="cn-protocol">agent.astream_events() · Python asyncio · sin bloqueo</div>
+      <div class="comm-node cn-agent">
+        <div class="cn-label">🧠 LangGraph Agent</div>
+        <div class="cn-sub">Grafo: START → tools → LLM → END · gestiona contexto de sesión · reintentos automáticos · tool calls paralelos cuando no hay dependencia</div>
+        <div class="cn-tools-row">
+          <span class="cn-tool">query_animal_db</span>
+          <span class="cn-tool">search_knowledge_base</span>
+          <span class="cn-tool">generate_alert</span>
+        </div>
+      </div>
+      <div class="cn-protocol">Tool calls paralelos si no hay dependencia de datos</div>
+      <div class="cn-data-row">
+        <div class="comm-node cn-pg"><div class="cn-label">🐘 PostgreSQL</div><div class="cn-sub">Registros del hato · histórico · alertas activas · ~15 ms/query</div></div>
+        <div class="comm-node cn-ch"><div class="cn-label">🔮 ChromaDB</div><div class="cn-sub">Embeddings · top-k=5 · &lt;30 ms · corpus vet.</div></div>
+        <div class="comm-node cn-cl"><div class="cn-label">✦ Claude Sonnet</div><div class="cn-sub">API Anthropic · streaming · 200k context tokens</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S9 · CHAT EDUCATIVO ════════════════ -->
+<div class="slide" id="s9">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Modo educativo</div>
+  <h2 class="htitle">El agente no solo reporta — visualiza, interpreta y enseña</h2><div class="hline"></div>
+  <div class="chat-wrap">
+
+    <!-- ── Ejemplo 1: Producción de leche ── -->
+    <div class="chat-col">
+      <div class="chat-col-tag">Ejemplo 1 — Tendencia de producción del hato</div>
+      <div class="chat-window">
+        <div class="chat-head">
+          <div class="chat-av">G</div>
+          <div><div>GanaderIA</div><div class="chat-st">● En línea · responde en &lt;5s</div></div>
+        </div>
+        <div class="chat-body">
+          <div class="msg u">
+            <div class="msg-who">Productor</div>
+            <div class="bubble">¿Cómo va la producción de leche del hato en las últimas 6 semanas?</div>
+          </div>
+          <div class="msg a">
+            <div class="msg-who">GanaderIA</div>
+            <div class="bubble">
+              <span class="b-ok">📈 Tendencia positiva — Hato completo (124 animales)</span><br><br>
+              La producción promedio subió de <strong>22.4 L/día</strong> (sem. 1) a <strong>26.1 L/día</strong> (sem. 6), un avance del <strong>+16.5 %</strong> en 6 semanas. La caída de la semana 4 (23.9 L) coincide con el cambio de lote de pasto reportado ese período.
+              <!-- SVG: línea de tendencia producción -->
+              <svg viewBox="0 0 260 78" class="b-chart" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="78" fill="rgba(0,0,0,.28)" rx="5"/>
+                <!-- grid -->
+                <line x1="36" y1="10" x2="252" y2="10" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+                <line x1="36" y1="27" x2="252" y2="27" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+                <line x1="36" y1="44" x2="252" y2="44" stroke="rgba(255,255,255,.07)" stroke-width="1"/>
+                <line x1="36" y1="61" x2="252" y2="61" stroke="rgba(255,255,255,.1)"  stroke-width="1"/>
+                <!-- y labels -->
+                <text x="33" y="13"  fill="#6b8d6e" font-size="5.5" text-anchor="end">28L</text>
+                <text x="33" y="30"  fill="#6b8d6e" font-size="5.5" text-anchor="end">25L</text>
+                <text x="33" y="47"  fill="#6b8d6e" font-size="5.5" text-anchor="end">22L</text>
+                <text x="33" y="64"  fill="#6b8d6e" font-size="5.5" text-anchor="end">19L</text>
+                <!-- area fill: pts (36,42)(79,38)(122,28)(166,33)(209,25)(252,21) -->
+                <path d="M36,42 L79,38 L122,28 L166,33 L209,25 L252,21 L252,61 L36,61 Z" fill="rgba(76,175,80,.18)"/>
+                <!-- line -->
+                <polyline points="36,42 79,38 122,28 166,33 209,25 252,21"
+                          fill="none" stroke="#4caf50" stroke-width="2.2"
+                          stroke-linejoin="round" stroke-linecap="round"/>
+                <!-- dots -->
+                <circle cx="36"  cy="42" r="3" fill="#4caf50"/>
+                <circle cx="79"  cy="38" r="3" fill="#4caf50"/>
+                <circle cx="122" cy="28" r="3" fill="#4caf50"/>
+                <circle cx="166" cy="33" r="3" fill="#ff9800"/>
+                <circle cx="209" cy="25" r="3" fill="#4caf50"/>
+                <circle cx="252" cy="21" r="3.5" fill="#4caf50" stroke="#fff" stroke-width="1.2"/>
+                <!-- value labels -->
+                <text x="36"  y="38" fill="#9db8a2" font-size="5.5" text-anchor="middle">22.4</text>
+                <text x="166" y="29" fill="#ffb74d" font-size="5.5" text-anchor="middle">23.9</text>
+                <text x="252" y="17" fill="#81c784" font-size="6" font-weight="bold" text-anchor="middle">26.1L</text>
+                <!-- x labels -->
+                <text x="36"  y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 1</text>
+                <text x="79"  y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 2</text>
+                <text x="122" y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 3</text>
+                <text x="166" y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 4</text>
+                <text x="209" y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 5</text>
+                <text x="252" y="72" fill="#4a6b4d" font-size="5.5" text-anchor="middle">Sem 6</text>
+                <!-- trend badge -->
+                <rect x="90" y="5" width="44" height="10" rx="3" fill="rgba(76,175,80,.25)"/>
+                <text x="112" y="12" fill="#81c784" font-size="6" font-weight="bold" text-anchor="middle">↑ +16.5 %</text>
+              </svg>
+              <strong>3 vacas por debajo de 22 L</strong> (umbral mínimo): H-051, C-103, B-017. Requieren revisión nutricional antes de la próxima semana.
+              <div class="b-action">✅ <strong>Acción:</strong> Revisar suplementación de las 3 vacas en alerta. El resto del hato está en trayectoria óptima — no intervenir.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Ejemplo 2: Estado reproductivo ── -->
+    <div class="chat-col">
+      <div class="chat-col-tag">Ejemplo 2 — Alerta reproductiva del hato</div>
+      <div class="chat-window">
+        <div class="chat-head">
+          <div class="chat-av">G</div>
+          <div><div>GanaderIA</div><div class="chat-st">● En línea · responde en &lt;5s</div></div>
+        </div>
+        <div class="chat-body">
+          <div class="msg u">
+            <div class="msg-who">Productor</div>
+            <div class="bubble">¿Cuántas vacas tienen problemas reproductivos ahora mismo?</div>
+          </div>
+          <div class="msg a">
+            <div class="msg-who">GanaderIA</div>
+            <div class="bubble">
+              <span class="b-alert">⚠ ALERTA reproductiva — 24 vacas fuera del rango óptimo</span><br><br>
+              Los <strong>días abiertos</strong> miden el tiempo desde el último parto sin nueva preñez. El rango óptimo para razas lecheras es <strong>60–85 días</strong>. Aquí la distribución actual del hato (124 vacas):
+              <!-- SVG: barras horizontales días abiertos -->
+              <svg viewBox="0 0 260 90" class="b-chart" xmlns="http://www.w3.org/2000/svg">
+                <rect width="260" height="90" fill="rgba(0,0,0,.28)" rx="5"/>
+                <!-- labels y barras -->
+                <!-- row 1: ≤60 días, 68 vacas, verde -->
+                <text x="4"  y="18" fill="#9db8a2" font-size="6">≤60 días</text>
+                <text x="4"  y="26" fill="#6b8d6e" font-size="5.5">Óptimo</text>
+                <rect x="78" y="10" width="174" height="13" rx="2" fill="rgba(255,255,255,.04)"/>
+                <rect x="78" y="10" width="174" height="13" rx="2" fill="url(#g1)"/>
+                <defs>
+                  <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#66bb6a"/><stop offset="100%" stop-color="#2e7d32"/>
+                  </linearGradient>
+                  <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#ffa726"/><stop offset="100%" stop-color="#e65100"/>
+                  </linearGradient>
+                  <linearGradient id="g3" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#ff7043"/><stop offset="100%" stop-color="#bf360c"/>
+                  </linearGradient>
+                  <linearGradient id="g4" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="0%" stop-color="#ef5350"/><stop offset="100%" stop-color="#7f0000"/>
+                  </linearGradient>
+                </defs>
+                <text x="255" y="20" fill="#81c784" font-size="6" font-weight="bold" text-anchor="end">68 vacas</text>
+                <!-- row 2: 61-90 días, 32 vacas, naranja -->
+                <text x="4"  y="40" fill="#9db8a2" font-size="6">61–90 días</text>
+                <text x="4"  y="48" fill="#6b8d6e" font-size="5.5">Vigilancia</text>
+                <rect x="78" y="32" width="174" height="13" rx="2" fill="rgba(255,255,255,.04)"/>
+                <rect x="78" y="32" width="82"  height="13" rx="2" fill="url(#g2)"/>
+                <text x="163" y="42" fill="#ffa726" font-size="6" font-weight="bold" text-anchor="end">32 vacas</text>
+                <!-- row 3: 91-120 días, 18 vacas, rojo-naranja -->
+                <text x="4"  y="62" fill="#9db8a2" font-size="6">91–120 días</text>
+                <text x="4"  y="70" fill="#6b8d6e" font-size="5.5">Riesgo</text>
+                <rect x="78" y="54" width="174" height="13" rx="2" fill="rgba(255,255,255,.04)"/>
+                <rect x="78" y="54" width="46"  height="13" rx="2" fill="url(#g3)"/>
+                <text x="127" y="64" fill="#ff8a65" font-size="6" font-weight="bold" text-anchor="end">18 vacas</text>
+                <!-- row 4: +120 días, 6 vacas, rojo -->
+                <text x="4"  y="82" fill="#ef9a9a" font-size="6">+120 días</text>
+                <text x="4"  y="88" fill="#6b8d6e" font-size="5.5">Crítico</text>
+                <rect x="78" y="76" width="174" height="10" rx="2" fill="rgba(255,255,255,.04)"/>
+                <rect x="78" y="76" width="16"  height="10" rx="2" fill="url(#g4)"/>
+                <text x="97"  y="84" fill="#ef5350" font-size="6" font-weight="bold">6 vacas</text>
+              </svg>
+              <strong>Costo acumulado estimado</strong> de las 24 vacas fuera de rango: <strong>~$1,440 perdidos</strong> (promedio $60/vaca en días improductivos). Cada semana sin atención suma ~$340 adicionales al hato.
+              <div class="b-action">✅ <strong>Acción inmediata:</strong> Las 6 en estado crítico (+120 días) necesitan revisión veterinaria esta semana. Para las 18 en riesgo: verificar detección de celo y aplicar protocolo de sincronización. ¿Listo el listado con nombres?</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ── Fila de explicación ── -->
+  <div class="edu-row">
+    <div class="edu-card">
+      <div class="edu-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><circle cx="12" cy="16" r="1" fill="currentColor"/></svg>¿Qué lo hace diferente?</div>
+      <div class="edu-txt">No muestra solo el número: <strong>explica qué significa, cuánto cuesta y qué hacer</strong>. Convierte datos en decisiones.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>Conocimiento embebido</div>
+      <div class="edu-txt">Guías veterinarias, rangos por raza y protocolos sanitarios consultados semánticamente en cada respuesta.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg>Sin tecnicismos</div>
+      <div class="edu-txt">Responde en el idioma del ganadero. Traduce términos veterinarios y cuantifica el impacto en dinero, no en índices abstractos.</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Historial y continuidad</div>
+      <div class="edu-txt">El agente revisa el historial completo del animal y mantiene contexto dentro de la sesión para preguntas de seguimiento.</div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ S10 · COSTOS EN PRODUCCIÓN ═════════ -->
+<div class="slide" id="s10">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>Costos en producción</div>
+  <h2 class="htitle">¿Cuánto cuesta poner GanaderIA en producción?</h2><div class="hline"></div>
+
+  <!-- Fila superior: 4 tarjetas de servicio + tarjeta total -->
+  <div class="cost-infra-strip">
+    <div class="infra-card">
+      <div class="infra-card-head"><div class="infra-dot" style="background:#1976d2"></div><div class="infra-card-name">VPS · FastAPI + ChromaDB</div></div>
+      <div class="infra-card-note">2 GB RAM · Ubuntu · Digital Ocean / Linode</div>
+      <div class="infra-card-price">$20<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+    </div>
+    <div class="infra-card">
+      <div class="infra-card-head"><div class="infra-dot" style="background:#f57c00"></div><div class="infra-card-name">PostgreSQL managed</div></div>
+      <div class="infra-card-note">1 GB · backups automáticos · SSL incluido</div>
+      <div class="infra-card-price">$15<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+    </div>
+    <div class="infra-card">
+      <div class="infra-card-head"><div class="infra-dot" style="background:#388e3c"></div><div class="infra-card-name">Frontend · Vercel</div></div>
+      <div class="infra-card-note">Free tier · hasta 100 GB transferencia</div>
+      <div class="infra-card-price">$0<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+    </div>
+    <div class="infra-card">
+      <div class="infra-card-head"><div class="infra-dot" style="background:#7b1fa2"></div><div class="infra-card-name">Claude API (variable)</div></div>
+      <div class="infra-card-note">~$0.012/consulta con caché · 80 consultas/usuario/mes</div>
+      <div class="infra-card-price">~$1<span style="font-size:10px;font-weight:400;color:#6b9e6f">/usuario</span></div>
+    </div>
+    <div class="cost-total-card">
+      <div class="cost-total-lbl">Base mensual (sin usuarios)</div>
+      <div class="cost-total-val">$35</div>
+      <div class="cost-total-sub">+ ~$1 por usuario activo/mes</div>
+    </div>
+  </div>
+
+  <!-- Grilla principal: tabla izquierda · gráficos derecha -->
+  <div class="cost-layout">
+    <div class="cost-left">
+      <div class="cost-section-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>Costo total por cantidad de usuarios</div>
+      <table class="tier-table">
+        <thead><tr><th>Usuarios</th><th>Infra</th><th>API Claude</th><th>Total/mes</th><th>Por usuario</th></tr></thead>
+        <tbody>
+          <tr><td>10 usuarios</td><td>$35</td><td>$10</td><td>$45</td><td>$4.50</td></tr>
+          <tr><td>50 usuarios</td><td>$35</td><td>$48</td><td>$83</td><td>$1.66</td></tr>
+          <tr class="tier-best"><td>100 usuarios<span class="tier-badge">Óptimo</span></td><td>$55</td><td>$96</td><td>$151</td><td>$1.51</td></tr>
+          <tr><td>250 usuarios</td><td>$80</td><td>$240</td><td>$320</td><td>$1.28</td></tr>
+          <tr><td>500 usuarios</td><td>$120</td><td>$480</td><td>$600</td><td>$1.20</td></tr>
+          <tr><td>1 000 usuarios</td><td>$210</td><td>$960</td><td>$1,170</td><td>$1.17</td></tr>
+        </tbody>
+      </table>
+      <div class="cost-roi-note">
+        <strong>ROI estimado por finca (50 vacas):</strong><br>
+        El sistema detecta 1 vaca con días abiertos fuera de rango → ahorro de $280–400/año.<br>
+        Costo anual del sistema a 100 usuarios = <strong>$18/finca/año</strong>. ROI: <strong>15×</strong>.
+      </div>
+    </div>
+    <div class="cost-right">
+      <div class="cost-section-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>Costo vs usuarios — visualización</div>
+      <div class="cost-canvas-wrap"><canvas id="cvCost"></canvas></div>
+      <div class="cost-canvas-wrap cost-mini">
+        <div class="chart-ttl">Costo por usuario (USD/mes) — economías de escala</div>
+        <canvas id="cvCostPerUser"></canvas>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S11 · METODOLOGÍA — SCRUM ══════════════ -->
+<div class="slide" id="s11">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>Metodología de desarrollo</div>
+  <h2 class="htitle">Scrum — desarrollo ágil e iterativo</h2><div class="hline"></div>
+
+  <div class="scrum-body">
+    <!-- Columna izquierda: 4 sprints -->
+    <div class="sprint-col">
+      <div class="sprint-card">
+        <div class="sprint-num">1</div>
+        <div class="sprint-info">
+          <div class="sprint-ttl">Fundamentos del sistema</div>
+          <div class="sprint-dur">Semanas 1–2 · Entregable: backend funcional</div>
+          <div class="sprint-txt">Modelado de BD PostgreSQL + ChromaDB · Endpoints FastAPI para ingesta de datos ganaderos · Variables reproductivas, productivas y sanitarias</div>
+        </div>
+      </div>
+      <div class="sprint-card">
+        <div class="sprint-num">2</div>
+        <div class="sprint-info">
+          <div class="sprint-ttl">Agente inteligente</div>
+          <div class="sprint-dur">Semanas 3–4 · Entregable: agente LangGraph desplegado</div>
+          <div class="sprint-txt">Integración Claude API con prompt caching · Grafo LangGraph con nodos de análisis y educación · RAG sobre ChromaDB con documentos técnicos ganaderos</div>
+        </div>
+      </div>
+      <div class="sprint-card">
+        <div class="sprint-num">3</div>
+        <div class="sprint-info">
+          <div class="sprint-ttl">Interfaz y dashboard</div>
+          <div class="sprint-dur">Semanas 5–6 · Entregable: app web completa</div>
+          <div class="sprint-txt">Frontend Next.js con chat educativo en tiempo real · Dashboard de KPIs del hato · Visualizaciones de producción, salud y reproducción</div>
+        </div>
+      </div>
+      <div class="sprint-card">
+        <div class="sprint-num">4</div>
+        <div class="sprint-info">
+          <div class="sprint-ttl">Validación y despliegue</div>
+          <div class="sprint-dur">Semanas 7–8 · Entregable: sistema en producción</div>
+          <div class="sprint-txt">Pruebas con datos reales de finca piloto · Ajuste fino de prompts y umbrales · Despliegue en VPS + Vercel · Análisis de costos y ROI</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Columna derecha: roles + ceremonias + timeline -->
+    <div class="scrum-right">
+      <div class="scrum-roles">
+        <div class="scrum-role-card">
+          <div class="role-icon">👨‍🌾</div>
+          <div class="role-name">Product Owner</div>
+          <div class="role-desc">Ganadero / usuario final. Define prioridades del backlog según necesidades reales de la finca</div>
+        </div>
+        <div class="scrum-role-card">
+          <div class="role-icon">🧭</div>
+          <div class="role-name">Scrum Master</div>
+          <div class="role-desc">Coordinación técnica del proyecto. Elimina impedimentos y facilita las ceremonias del equipo</div>
+        </div>
+        <div class="scrum-role-card">
+          <div class="role-icon">💻</div>
+          <div class="role-name">Dev Team</div>
+          <div class="role-desc">Desarrollo IA (LangGraph, Claude) · Backend (FastAPI) · Frontend (Next.js) · DevOps (VPS, Vercel)</div>
+        </div>
+      </div>
+
+      <div class="scrum-ceremonies">
+        <div class="scrum-ceremony">
+          <div class="ceremony-name">Sprint Planning</div>
+          <div class="ceremony-freq">Cada 2 semanas</div>
+        </div>
+        <div class="scrum-ceremony">
+          <div class="ceremony-name">Daily Standup</div>
+          <div class="ceremony-freq">Diario · 15 min</div>
+        </div>
+        <div class="scrum-ceremony">
+          <div class="ceremony-name">Sprint Review</div>
+          <div class="ceremony-freq">Demo al PO al final</div>
+        </div>
+        <div class="scrum-ceremony">
+          <div class="ceremony-name">Retrospectiva</div>
+          <div class="ceremony-freq">Mejora continua</div>
+        </div>
+      </div>
+
+      <!-- SVG timeline de sprints -->
+      <div class="sprint-timeline">
+        <div class="cost-section-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Línea de tiempo — 8 semanas</div>
+        <svg viewBox="0 0 460 90" style="width:100%;display:block;overflow:visible">
+          <defs>
+            <linearGradient id="spG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#388e3c"/><stop offset="100%" stop-color="#66bb6a"/></linearGradient>
+            <linearGradient id="spG2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1976d2"/><stop offset="100%" stop-color="#64b5f6"/></linearGradient>
+            <linearGradient id="spG3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7b1fa2"/><stop offset="100%" stop-color="#ce93d8"/></linearGradient>
+            <linearGradient id="spG4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#e65100"/><stop offset="100%" stop-color="#ffb74d"/></linearGradient>
+          </defs>
+          <!-- Semanas -->
+          <text x="12"  y="12" font-size="7" fill="#4d7a50">S1</text>
+          <text x="68"  y="12" font-size="7" fill="#4d7a50">S2</text>
+          <text x="124" y="12" font-size="7" fill="#4d7a50">S3</text>
+          <text x="180" y="12" font-size="7" fill="#4d7a50">S4</text>
+          <text x="236" y="12" font-size="7" fill="#4d7a50">S5</text>
+          <text x="292" y="12" font-size="7" fill="#4d7a50">S6</text>
+          <text x="348" y="12" font-size="7" fill="#4d7a50">S7</text>
+          <text x="404" y="12" font-size="7" fill="#4d7a50">S8</text>
+          <!-- Sprint bars -->
+          <rect x="10"  y="18" width="110" height="15" rx="4" fill="url(#spG1)"/>
+          <text x="65"  y="29" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">Sprint 1 — Backend</text>
+          <rect x="122" y="18" width="110" height="15" rx="4" fill="url(#spG2)"/>
+          <text x="177" y="29" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">Sprint 2 — Agente IA</text>
+          <rect x="234" y="18" width="110" height="15" rx="4" fill="url(#spG3)"/>
+          <text x="289" y="29" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">Sprint 3 — Frontend</text>
+          <rect x="346" y="18" width="110" height="15" rx="4" fill="url(#spG4)"/>
+          <text x="401" y="29" font-size="8" fill="#fff" text-anchor="middle" font-weight="700">Sprint 4 — QA + Deploy</text>
+          <!-- Milestones -->
+          <circle cx="120" cy="50" r="5" fill="#66bb6a"/>
+          <text x="120" y="64" font-size="7" fill="#81c784" text-anchor="middle">DB + API ✓</text>
+          <circle cx="232" cy="50" r="5" fill="#64b5f6"/>
+          <text x="232" y="64" font-size="7" fill="#90caf9" text-anchor="middle">Agente ✓</text>
+          <circle cx="344" cy="50" r="5" fill="#ce93d8"/>
+          <text x="344" y="64" font-size="7" fill="#e1bee7" text-anchor="middle">Dashboard ✓</text>
+          <circle cx="456" cy="50" r="5" fill="#ffb74d"/>
+          <text x="438" y="64" font-size="7" fill="#ffe0b2" text-anchor="middle">Prod ✓</text>
+          <!-- Connector line -->
+          <line x1="10" y1="50" x2="456" y2="50" stroke="rgba(76,175,80,.25)" stroke-width="1.5" stroke-dasharray="4,3"/>
+        </svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ S12 · IMPACTO Y CIERRE ══════════════ -->
+<div class="slide" id="s12">
+  <div class="eyebrow"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>Resultados esperados</div>
+  <h2 class="htitle">Impacto esperado — por qué vale la pena</h2><div class="hline"></div>
+
+  <div class="s12-body">
+    <!-- Columna izquierda: gráfico ROI -->
+    <div class="s12-left">
+      <div class="impact-proj-wrap">
+        <div class="chart-ttl">Proyección ROI — costo acumulado vs. ahorro generado por finca (USD, 12 meses)</div>
+        <canvas id="cvImpact"></canvas>
+      </div>
+    </div>
+
+    <!-- Columna derecha: métricas + closing -->
+    <div class="s12-right">
+      <div class="metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon"><svg fill="none" stroke="#2e7d32" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+          <div class="metric-num" id="m1">0%</div>
+          <div class="metric-lbl">consultas resueltas sin intervención veterinaria humana</div>
+          <div class="metric-ctx">→ Reduce costo de asesoría externa hasta un 70%</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><svg fill="none" stroke="#2e7d32" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <div class="metric-num" id="m2">0s</div>
+          <div class="metric-lbl">tiempo de respuesta promedio del agente</div>
+          <div class="metric-ctx">→ Frente a 48–72 h de espera por un técnico</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><svg fill="none" stroke="#2e7d32" stroke-width="2" viewBox="0 0 24 24"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg></div>
+          <div class="metric-num" id="m3">0/7</div>
+          <div class="metric-lbl">disponibilidad continua del sistema</div>
+          <div class="metric-ctx">→ La finca no para; el agente tampoco</div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon"><svg fill="none" stroke="#2e7d32" stroke-width="2" viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div>
+          <div class="metric-num" id="m4">↓ 0%</div>
+          <div class="metric-lbl">reducción estimada de pérdidas por decisiones tardías</div>
+          <div class="metric-ctx">→ En 50 vacas: $6,000–10,000/año recuperados</div>
+        </div>
+      </div>
+      <div class="closing-grid">
+        <div class="closing-quote">"GanaderIA convierte el dato de campo en decisión inteligente.<br>No reemplaza al ganadero: le da los ojos que le faltaban."</div>
+        <div class="roadmap">
+          <div class="roadmap-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>Hoja de ruta — próximos pasos</div>
+          <div class="roadmap-item"><div class="rdot"></div>MVP con 3 fincas piloto en Manabí</div>
+          <div class="roadmap-item"><div class="rdot"></div>Integración con sensores IoT de temperatura y peso</div>
+          <div class="roadmap-item"><div class="rdot"></div>App móvil con notificaciones push de alertas</div>
+          <div class="roadmap-item"><div class="rdot"></div>Módulo predictivo reproductivo con ML supervisado</div>
+          <div class="roadmap-item"><div class="rdot"></div>Expansión a ganadería porcina y avícola</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="closing-foot">
+    <span><strong>Autor:</strong> Romario Alban</span>
+    <span><strong>Institución:</strong> ISTJ — Tecnología Superior en Inteligencia Artificial</span>
+    <span><strong>Fecha:</strong> Abril 2026</span>
+    <div class="closing-foot-logos">
+      <img src="assets/logo-istj-real.svg" class="logo-istj-muted" alt="ISTJ">
+      <img src="assets/logo-ganaderia.png" class="logo-app-muted" alt="GanaderIA">
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/main.js"></script>
+<script src="js/animations.js"></script>
+</body>
+</html>
