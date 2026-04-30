@@ -1438,7 +1438,11 @@ body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
    Verde: #2e7d32 / #4caf50  Azul: #1565c0 / #1976d2
 ═══════════════════════════════════════════ */
 body.light-mode{
-  background:linear-gradient(135deg,#e8f5e9 0%,#e3f2fd 50%,#f1f8e9 100%);
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(76,175,80,.14) 0%, transparent 55%),
+    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(25,118,210,.11) 0%, transparent 52%),
+    radial-gradient(ellipse 45% 35% at 50% 50%, rgba(129,199,132,.07) 0%, transparent 60%),
+    #ffffff;
   color:#1a3d1f;
 }
 body.light-mode .theme-btn{background:rgba(46,125,50,.1);border-color:rgba(46,125,50,.3);color:#2e7d32}
@@ -1447,7 +1451,7 @@ body.light-mode .theme-btn .ico-light{display:block}
 body.light-mode .theme-btn .ico-dark{display:none}
 
 /* Nav panel */
-body.light-mode .nav-panel{background:#f5fcf5;border-left-color:rgba(46,125,50,.2)}
+body.light-mode .nav-panel{background:#ffffff;border-left-color:rgba(46,125,50,.2)}
 body.light-mode .nav-head{border-bottom-color:rgba(46,125,50,.15)}
 body.light-mode .nav-sub{color:rgba(46,125,50,.65)}
 body.light-mode .nav-lbl{color:rgba(46,125,50,.55)}
@@ -1459,12 +1463,15 @@ body.light-mode .nav-num{background:rgba(46,125,50,.1);color:#2e7d32}
 body.light-mode .nav-foot{border-top-color:rgba(46,125,50,.15)}
 body.light-mode .nav-counter{color:rgba(46,125,50,.8)}
 body.light-mode .nav-hint{color:rgba(0,0,0,.35)}
-body.light-mode .nav-toggle{background:#f5fcf5;border-color:rgba(46,125,50,.25);color:#2e7d32}
+body.light-mode .nav-toggle{background:#ffffff;border-color:rgba(46,125,50,.25);color:#2e7d32}
 body.light-mode .topbar{background:rgba(46,125,50,.1)}
 
-/* Slides: fondo con gradiente de colores del logo */
+/* Slides: fondo blanco con iluminaciones del logo */
 body.light-mode .slide{
-  background:linear-gradient(135deg,#f4fbf5 0%,#eaf4fd 55%,#f2faf3 100%);
+  background:
+    radial-gradient(ellipse 70% 55% at 8% 12%, rgba(76,175,80,.11) 0%, transparent 52%),
+    radial-gradient(ellipse 65% 50% at 92% 88%, rgba(25,118,210,.09) 0%, transparent 50%),
+    #ffffff;
 }
 
 /* S1 portada — fondo verde/azul vibrante (conserva dramatismo) */
@@ -1474,17 +1481,20 @@ body.light-mode #s1{
 body.light-mode #s1::before{opacity:.18 !important}
 body.light-mode #s1::after{opacity:.22 !important}
 
-/* Slides con fondo animado oscuro → versión clara */
+/* Slides con fondo animado oscuro → blanco con iluminaciones */
 body.light-mode #s6,body.light-mode #s7,body.light-mode #s8,body.light-mode #s9,
 body.light-mode #s10,body.light-mode #s11,body.light-mode #s12{
-  background:linear-gradient(135deg,#f0fbf1 0%,#e8f3fd 55%,#f0fbf1 100%) !important;
+  background:
+    radial-gradient(ellipse 70% 55% at 8% 12%, rgba(76,175,80,.11) 0%, transparent 52%),
+    radial-gradient(ellipse 65% 50% at 92% 88%, rgba(25,118,210,.09) 0%, transparent 50%),
+    #ffffff !important;
 }
 body.light-mode #s6::before,body.light-mode #s7::before,body.light-mode #s8::before,
 body.light-mode #s9::before,body.light-mode #s10::before,body.light-mode #s11::before,
-body.light-mode #s12::before{opacity:.05 !important}
+body.light-mode #s12::before{opacity:0 !important}
 body.light-mode #s6::after,body.light-mode #s7::after,body.light-mode #s8::after,
 body.light-mode #s9::after,body.light-mode #s10::after,body.light-mode #s11::after,
-body.light-mode #s12::after{opacity:.06 !important;filter:blur(20px) saturate(60%) !important}
+body.light-mode #s12::after{opacity:0 !important}
 
 /* Eyebrow, htitle, hline */
 body.light-mode .eyebrow{color:#1565c0 !important}
@@ -1525,8 +1535,8 @@ body.light-mode .dk-value{color:#0f2d14}
 body.light-mode .dk-trend{color:#2e7d32}
 body.light-mode .okr-card{background:#fff;border-color:rgba(46,125,50,.18)}
 body.light-mode .dash-info-card{background:#fff;border-color:rgba(46,125,50,.18);color:#1a3d1f}
-/* Chart cards mantienen fondo oscuro para que los canvas sigan siendo legibles */
-body.light-mode .chart-card{box-shadow:0 4px 20px rgba(46,125,50,.15)}
+body.light-mode .chart-card{background:#ffffff !important;border-color:rgba(46,125,50,.25) !important;box-shadow:0 4px 24px rgba(46,125,80,.12),0 0 0 1px rgba(46,125,50,.1) !important}
+body.light-mode .chart-ttl{color:#2d5233 !important}
 
 /* S6 Arquitectura */
 body.light-mode .arch-card{background:#fff;border-color:rgba(46,125,50,.18);box-shadow:0 2px 12px rgba(46,125,50,.08)}
@@ -1542,7 +1552,7 @@ body.light-mode .why-table td{color:#2d5233;border-color:rgba(46,125,50,.1)}
 body.light-mode .why-chosen{color:#1b5e20 !important;font-weight:700}
 body.light-mode .why-alt{color:#b71c1c !important}
 body.light-mode .why-reason{color:#3a6b40}
-/* chart canvas wrapper (cvWhyScore) mantiene fondo oscuro */
+body.light-mode .why-score-bar{background:#ffffff !important;border-color:rgba(46,125,50,.22) !important}
 
 /* S8 Flujo */
 body.light-mode .flow-step{background:#fff;border-color:rgba(46,125,50,.2);box-shadow:0 2px 10px rgba(46,125,50,.08)}
@@ -1580,7 +1590,7 @@ body.light-mode .tier-table td{color:#2d5233}
 body.light-mode .tier-table td:first-child{color:#1b5e20}
 body.light-mode .tier-best{background:rgba(46,125,50,.1) !important}
 body.light-mode .cost-roi-note{background:rgba(46,125,50,.06);border-color:rgba(46,125,50,.2);color:#2d5233}
-/* cost-canvas-wrap mantiene fondo oscuro */
+body.light-mode .cost-canvas-wrap{background:#ffffff !important;border-color:rgba(46,125,50,.22) !important}
 
 /* S11 Scrum */
 body.light-mode .sprint-card{background:#fff;border-color:rgba(46,125,50,.18);box-shadow:0 2px 10px rgba(46,125,50,.07)}
@@ -1608,4 +1618,4 @@ body.light-mode .roadmap-ttl{color:#0f2d14}
 body.light-mode .roadmap-item{color:#3a6b40}
 body.light-mode .closing-foot{color:#3a6b40;border-top-color:rgba(46,125,50,.2)}
 body.light-mode .closing-foot strong{color:#1b5e20}
-/* impact-proj-wrap mantiene fondo oscuro para el canvas */
+body.light-mode .impact-proj-wrap{background:#ffffff !important;border-color:rgba(46,125,50,.22) !important}
