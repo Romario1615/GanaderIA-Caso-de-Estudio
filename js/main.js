@@ -31,6 +31,16 @@ const barFill  = document.getElementById('barFill');
 const navPanel = document.getElementById('navPanel');
 const navTog   = document.getElementById('navTog');
 
+/* ══════════════ THEME TOGGLE ══════════════ */
+function toggleTheme() {
+  const light = document.body.classList.toggle('light-mode');
+  localStorage.setItem('ganaderIA-theme', light ? 'light' : 'dark');
+}
+/* Restore saved theme */
+if (localStorage.getItem('ganaderIA-theme') === 'light') {
+  document.body.classList.add('light-mode');
+}
+
 /* Auto-close panel on small screens */
 if (window.innerWidth <= 860) {
   panelOpen = false;
