@@ -1438,11 +1438,7 @@ body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
    Verde: #2e7d32 / #4caf50  Azul: #1565c0 / #1976d2
 ═══════════════════════════════════════════ */
 body.light-mode{
-  background:
-    radial-gradient(ellipse 80% 60% at 15% 20%, rgba(76,175,80,.14) 0%, transparent 55%),
-    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(25,118,210,.11) 0%, transparent 52%),
-    radial-gradient(ellipse 45% 35% at 50% 50%, rgba(129,199,132,.07) 0%, transparent 60%),
-    #ffffff;
+  background:#ffffff;
   color:#1a3d1f;
 }
 body.light-mode .theme-btn{background:rgba(46,125,50,.1);border-color:rgba(46,125,50,.3);color:#2e7d32}
@@ -1466,12 +1462,9 @@ body.light-mode .nav-hint{color:rgba(0,0,0,.35)}
 body.light-mode .nav-toggle{background:#ffffff;border-color:rgba(46,125,50,.25);color:#2e7d32}
 body.light-mode .topbar{background:rgba(46,125,50,.1)}
 
-/* Slides: fondo blanco con iluminaciones del logo */
+/* Slides: fondo blanco */
 body.light-mode .slide{
-  background:
-    radial-gradient(ellipse 70% 55% at 8% 12%, rgba(76,175,80,.11) 0%, transparent 52%),
-    radial-gradient(ellipse 65% 50% at 92% 88%, rgba(25,118,210,.09) 0%, transparent 50%),
-    #ffffff;
+  background:#ffffff;
 }
 
 /* S1 portada — fondo verde/azul vibrante (conserva dramatismo) */
@@ -1481,13 +1474,10 @@ body.light-mode #s1{
 body.light-mode #s1::before{opacity:.18 !important}
 body.light-mode #s1::after{opacity:.22 !important}
 
-/* Slides con fondo animado oscuro → blanco con iluminaciones */
+/* Slides con fondo animado oscuro → blanco */
 body.light-mode #s6,body.light-mode #s7,body.light-mode #s8,body.light-mode #s9,
 body.light-mode #s10,body.light-mode #s11,body.light-mode #s12{
-  background:
-    radial-gradient(ellipse 70% 55% at 8% 12%, rgba(76,175,80,.11) 0%, transparent 52%),
-    radial-gradient(ellipse 65% 50% at 92% 88%, rgba(25,118,210,.09) 0%, transparent 50%),
-    #ffffff !important;
+  background:#ffffff !important;
 }
 body.light-mode #s6::before,body.light-mode #s7::before,body.light-mode #s8::before,
 body.light-mode #s9::before,body.light-mode #s10::before,body.light-mode #s11::before,
