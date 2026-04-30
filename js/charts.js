@@ -1,6 +1,4 @@
 /* ══════════════ CANVAS UTILITIES ══════════════ */
-function isLight() { return document.body.classList.contains('light-mode'); }
-
 function setupCanvas(id) {
   const c = document.getElementById(id);
   if (!c || !c.parentElement) return null;
@@ -23,38 +21,37 @@ function drawBar(progress = 1) {
     { id: 'A-042', v: 28.5 }, { id: 'E-091', v: 26.4 }, { id: 'D-056', v: 22.8 },
     { id: 'G-078', v: 18.5 }, { id: 'B-017', v: 14.2 }
   ];
-  const lm = isLight();
   const MAX = 40, pl = 54, pr = 68, pt = 14, pb = 22;
   const cW = W - pl - pr, cH = H - pt - pb, slot = cH / cows.length, barH = slot * .56;
   ctx.clearRect(0, 0, W, H);
   for (let t = 0; t <= 4; t++) {
     const x = pl + (cW / 4) * t;
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(x, pt); ctx.lineTo(x, H - pb); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'center';
     ctx.fillText((MAX / 4 * t) + 'L', x, H - pb + 12);
   }
-  ctx.strokeStyle = lm ? '#b0d4b4' : '#35513d'; ctx.lineWidth = 1.5;
+  ctx.strokeStyle = '#35513d'; ctx.lineWidth = 1.5;
   ctx.beginPath(); ctx.moveTo(pl, H - pb); ctx.lineTo(W - pr, H - pb); ctx.stroke();
   const thX = pl + (22 / MAX) * cW;
   ctx.strokeStyle = 'rgba(239,83,80,.68)'; ctx.lineWidth = 1.5; ctx.setLineDash([4, 3]);
   ctx.beginPath(); ctx.moveTo(thX, pt); ctx.lineTo(thX, H - pb); ctx.stroke();
-  ctx.setLineDash([]); ctx.fillStyle = lm ? '#c62828' : '#ffc4c4';
+  ctx.setLineDash([]); ctx.fillStyle = '#ffc4c4';
   ctx.font = '9px system-ui'; ctx.textAlign = 'center'; ctx.fillText('mín 22L', thX, pt - 1);
   cows.forEach((cow, i) => {
     const y = pt + slot * i + (slot - barH) / 2, bW = (cow.v / MAX) * cW * progress, alert = cow.v < 20;
-    ctx.fillStyle = lm ? '#f0f7f1' : '#1a2a1e'; ctx.fillRect(pl, y, cW, barH);
+    ctx.fillStyle = '#1a2a1e'; ctx.fillRect(pl, y, cW, barH);
     const g = ctx.createLinearGradient(pl, 0, pl + bW, 0);
     if (alert) { g.addColorStop(0, '#ffb57f'); g.addColorStop(1, '#ef5350'); }
     else { g.addColorStop(0, '#81c784'); g.addColorStop(1, '#2e7d32'); }
     ctx.fillStyle = g; ctx.fillRect(pl, y, bW, barH);
-    ctx.fillStyle = lm ? '#1b3d1f' : '#d6ebd9'; ctx.font = '10px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#d6ebd9'; ctx.font = '10px system-ui'; ctx.textAlign = 'right';
     ctx.fillText(cow.id, pl - 5, y + barH / 2 + 3.5);
     if (progress > 0.6) {
       ctx.font = 'bold 9.5px system-ui';
       if (bW > 34) { ctx.fillStyle = '#f8fff9'; ctx.textAlign = 'right'; ctx.fillText(cow.v + 'L', pl + bW - 4, y + barH / 2 + 3.5); }
-      else { ctx.fillStyle = lm ? '#1b3d1f' : '#d6ebd9'; ctx.textAlign = 'left'; ctx.fillText(cow.v + 'L', pl + bW + 4, y + barH / 2 + 3.5); }
-      if (alert) { ctx.fillStyle = lm ? '#c62828' : '#ffb3b3'; ctx.font = 'bold 8.5px system-ui'; ctx.textAlign = 'left'; ctx.fillText('⚠ ALERTA', pl + cW + 4, y + barH / 2 + 3.5); }
+      else { ctx.fillStyle = '#d6ebd9'; ctx.textAlign = 'left'; ctx.fillText(cow.v + 'L', pl + bW + 4, y + barH / 2 + 3.5); }
+      if (alert) { ctx.fillStyle = '#ffb3b3'; ctx.font = 'bold 8.5px system-ui'; ctx.textAlign = 'left'; ctx.fillText('⚠ ALERTA', pl + cW + 4, y + barH / 2 + 3.5); }
     }
   });
 }
@@ -62,7 +59,6 @@ function drawBar(progress = 1) {
 function drawDonut(progress = 1) {
   const pack = setupCanvas('cvDonut'); if (!pack) return;
   const { ctx, W, H } = pack;
-  const lm = isLight();
   const segs = [
     { lbl: 'Saludable', pct: 68, col: '#4caf50' },
     { lbl: 'En observación', pct: 22, col: '#ff9800' },
@@ -88,7 +84,7 @@ function drawDonut(progress = 1) {
   let ly = H - legH + 5;
   segs.forEach(s => {
     ctx.fillStyle = s.col; ctx.fillRect(7, ly, 9, 9);
-    ctx.fillStyle = lm ? '#2d5233' : '#d3e6d6'; ctx.font = '10px system-ui'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#d3e6d6'; ctx.font = '10px system-ui'; ctx.textAlign = 'left';
     ctx.fillText(s.lbl + ' (' + s.pct + '%)', 21, ly + 8); ly += 17;
   });
 }
@@ -96,7 +92,6 @@ function drawDonut(progress = 1) {
 function drawPieArea(progress = 1) {
   const pack = setupCanvas('cvPieArea'); if (!pack) return;
   const { ctx, W, H } = pack;
-  const lm = isLight();
   const segs = [
     { lbl: 'Reproductivo', pct: 38, col: '#ef5350' },
     { lbl: 'Sanitario', pct: 27, col: '#ff9800' },
@@ -116,7 +111,7 @@ function drawPieArea(progress = 1) {
   let ly = H - legH + 3;
   segs.forEach(s => {
     ctx.fillStyle = s.col; ctx.fillRect(8, ly, 8, 8);
-    ctx.fillStyle = lm ? '#2d5233' : '#d3e6d6'; ctx.font = '9px system-ui'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#d3e6d6'; ctx.font = '9px system-ui'; ctx.textAlign = 'left';
     ctx.fillText(s.lbl + ' ' + s.pct + '%', 20, ly + 7);
     ly += 12;
   });
@@ -127,14 +122,13 @@ function drawLine(progress = 1) {
   const { ctx, W, H } = pack;
   const months = ['Nov 25', 'Dic 25', 'Ene 26', 'Feb 26', 'Mar 26', 'Abr 26'];
   const vals = [18.2, 19.8, 21.4, 22.1, 24.6, 25.3];
-  const lm = isLight();
   const pl = 38, pr = 16, pt = 14, pb = 24, cW = W - pl - pr, cH = H - pt - pb, MIN = 14, MAX = 30;
   ctx.clearRect(0, 0, W, H);
   for (let i = 0; i <= 4; i++) {
     const y = pt + (cH / 4) * i, val = MAX - ((MAX - MIN) / 4) * i;
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pl, y); ctx.lineTo(W - pr, y); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'right';
     ctx.fillText(val.toFixed(0) + 'L', pl - 4, y + 3.5);
   }
   const pts = vals.map((v, i) => ({ x: pl + (cW / (vals.length - 1)) * i, y: pt + cH - ((v - MIN) / (MAX - MIN)) * cH }));
@@ -152,15 +146,15 @@ function drawLine(progress = 1) {
   pts.forEach((p, i) => {
     if (p.x > pl + clipW + 2) return;
     ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, 2 * Math.PI);
-    ctx.fillStyle = '#4caf50'; ctx.fill(); ctx.strokeStyle = lm ? '#e8f5e9' : '#0b130d'; ctx.lineWidth = 2; ctx.stroke();
+    ctx.fillStyle = '#4caf50'; ctx.fill(); ctx.strokeStyle = '#0b130d'; ctx.lineWidth = 2; ctx.stroke();
     if (progress > 0.5) {
-      ctx.fillStyle = lm ? '#1b3d1f' : '#d5ead8'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#d5ead8'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
       ctx.fillText(vals[i] + 'L', p.x, p.y - 8);
-      ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '9px system-ui'; ctx.fillText(months[i], p.x, H - pb + 13);
+      ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui'; ctx.fillText(months[i], p.x, H - pb + 13);
     }
   });
   if (progress > 0.9) {
-    ctx.fillStyle = lm ? '#1b5e20' : '#9be89e'; ctx.font = 'bold 9.5px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#9be89e'; ctx.font = 'bold 9.5px system-ui'; ctx.textAlign = 'right';
     ctx.fillText('↑ +39% en 6 meses', W - pr, pt + 10);
   }
 }
@@ -178,16 +172,15 @@ function drawStack(progress = 1) {
     { rep: 7, san: 5, prod: 3 }
   ];
   const cols = { rep: '#ef5350', san: '#ff9800', prod: '#64b5f6' };
-  const lm = isLight();
   const MAXV = 30, pl = 30, pr = 14, pt = 14, pb = 26;
   const cW = W - pl - pr, cH = H - pt - pb, slot = cW / weeks.length, bw = slot * .58;
   ctx.clearRect(0, 0, W, H);
   for (let i = 0; i <= 3; i++) {
     const y = pt + (cH / 3) * i;
     const v = MAXV - (MAXV / 3) * i;
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pl, y); ctx.lineTo(W - pr, y); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'right';
     ctx.fillText(v.toFixed(0), pl - 3, y + 3);
   }
   data.forEach((d, i) => {
@@ -197,7 +190,7 @@ function drawStack(progress = 1) {
     ctx.fillStyle = cols.prod; ctx.fillRect(x, base - hProd, bw, hProd); base -= hProd;
     ctx.fillStyle = cols.san;  ctx.fillRect(x, base - hSan,  bw, hSan);  base -= hSan;
     ctx.fillStyle = cols.rep;  ctx.fillRect(x, base - hRep,  bw, hRep);
-    ctx.fillStyle = lm ? '#3a6b40' : '#cde2d0'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#cde2d0'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'center';
     ctx.fillText(weeks[i], x + bw / 2, H - pb + 12);
   });
   const legend = [
@@ -208,7 +201,7 @@ function drawStack(progress = 1) {
   let lx = pl, ly = pt - 7;
   legend.forEach(item => {
     ctx.fillStyle = item.c; ctx.fillRect(lx, ly, 10, 6);
-    ctx.fillStyle = lm ? '#2d5233' : '#bdd4c0'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'left';
+    ctx.fillStyle = '#bdd4c0'; ctx.font = '8.5px system-ui'; ctx.textAlign = 'left';
     ctx.fillText(item.t, lx + 13, ly + 6);
     lx += 76;
   });
@@ -228,17 +221,16 @@ function drawCostTotal(progress = 1) {
     { lbl: '500 u.', infra: 120, api: 480 },
     { lbl: '1000u.', infra: 210, api: 960 },
   ];
-  const lm = isLight();
   const MAXV = 1200, pl = 38, pr = 12, pt = 18, pb = 34;
   const cW = W - pl - pr, cH = H - pt - pb, slot = cW / tiers.length, bW = slot * .62;
   ctx.clearRect(0, 0, W, H);
-  ctx.fillStyle = lm ? '#2d5233' : '#7a9e7e'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#7a9e7e'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'left';
   ctx.fillText('USD/mes', pl, pt - 4);
   for (let t = 0; t <= 4; t++) {
     const y = pt + (cH / 4) * t, val = MAXV - (MAXV / 4) * t;
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pl, y); ctx.lineTo(W - pr, y); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'right';
     ctx.fillText('$' + val, pl - 3, y + 3.5);
   }
   tiers.forEach((t, i) => {
@@ -251,14 +243,14 @@ function drawCostTotal(progress = 1) {
     gI.addColorStop(0, '#66bb6a'); gI.addColorStop(1, '#2e7d32');
     ctx.fillStyle = gI; ctx.fillRect(x, H - pb - hT, bW, hI);
     if (progress > 0.7) {
-      ctx.fillStyle = lm ? '#1b3d1f' : '#e8f5e9'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#e8f5e9'; ctx.font = 'bold 9px system-ui'; ctx.textAlign = 'center';
       ctx.fillText('$' + (t.infra + t.api), x + bW / 2, H - pb - hT - 4);
     }
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '9px system-ui';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui';
     ctx.fillText(t.lbl, x + bW / 2, H - pb + 12);
   });
   ctx.fillStyle = '#4caf50'; ctx.fillRect(pl, pt - 14, 10, 8);
-  ctx.fillStyle = lm ? '#2d5233' : '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'left'; ctx.fillText('Infra', pl + 13, pt - 7);
+  ctx.fillStyle = '#9db8a2'; ctx.font = '9px system-ui'; ctx.textAlign = 'left'; ctx.fillText('Infra', pl + 13, pt - 7);
   ctx.fillStyle = '#5c6bc0'; ctx.fillRect(pl + 55, pt - 14, 10, 8);
   ctx.fillText('API Claude', pl + 68, pt - 7);
 }
@@ -270,15 +262,14 @@ function drawCostPerUser(progress = 1) {
     { lbl: '10',  v: 4.50 }, { lbl: '50',  v: 1.66 }, { lbl: '100', v: 1.51 },
     { lbl: '250', v: 1.28 }, { lbl: '500', v: 1.20 }, { lbl: '1k',  v: 1.17 }
   ];
-  const lm = isLight();
   const MAXV = 5, pl = 34, pr = 10, pt = 12, pb = 20;
   const cW = W - pl - pr, cH = H - pt - pb, slot = cW / data.length, bW = slot * .6;
   ctx.clearRect(0, 0, W, H);
   for (let t = 0; t <= 4; t++) {
     const y = pt + (cH / 4) * t;
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pl, y); ctx.lineTo(W - pr, y); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '8px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#9db8a2'; ctx.font = '8px system-ui'; ctx.textAlign = 'right';
     ctx.fillText('$' + (MAXV - (MAXV / 4) * t).toFixed(1), pl - 3, y + 3);
   }
   data.forEach((d, i) => {
@@ -287,10 +278,10 @@ function drawCostPerUser(progress = 1) {
     g.addColorStop(0, '#ff7043'); g.addColorStop(1, '#bf360c');
     ctx.fillStyle = g; ctx.fillRect(x, H - pb - bH, bW, bH);
     if (progress > 0.6) {
-      ctx.fillStyle = lm ? '#1b3d1f' : '#e8f5e9'; ctx.font = 'bold 8px system-ui'; ctx.textAlign = 'center';
+      ctx.fillStyle = '#e8f5e9'; ctx.font = 'bold 8px system-ui'; ctx.textAlign = 'center';
       ctx.fillText('$' + d.v.toFixed(2), x + bW / 2, H - pb - bH - 3);
     }
-    ctx.fillStyle = lm ? '#3a6b40' : '#9db8a2'; ctx.font = '8px system-ui'; ctx.fillText(d.lbl, x + bW / 2, H - pb + 10);
+    ctx.fillStyle = '#9db8a2'; ctx.font = '8px system-ui'; ctx.fillText(d.lbl, x + bW / 2, H - pb + 10);
   });
 }
 
@@ -311,28 +302,27 @@ function drawWhyScore(progress = 1) {
   const barH = Math.max(8, Math.min(18, rowH * 0.28));
   const gap  = Math.max(4, rowH * 0.1);
   const fontSize = Math.max(9, Math.min(13, rowH * 0.2));
-  const lm = isLight();
   ctx.clearRect(0, 0, W, H);
   ctx.fillStyle = '#4caf50'; ctx.fillRect(pl, 6, 22, 7);
-  ctx.fillStyle = lm ? '#1b5e20' : '#c8e6c9'; ctx.font = `bold ${fontSize - 1}px system-ui`; ctx.textAlign = 'left';
+  ctx.fillStyle = '#c8e6c9'; ctx.font = `bold ${fontSize - 1}px system-ui`; ctx.textAlign = 'left';
   ctx.fillText('Stack elegido', pl + 26, 13);
   ctx.fillStyle = '#ef5350'; ctx.fillRect(pl + 140, 6, 22, 7);
-  ctx.fillStyle = lm ? '#c62828' : '#ffcdd2';
+  ctx.fillStyle = '#ffcdd2';
   ctx.fillText('Mejores alternativas', pl + 166, 13);
   criteria.forEach((c, i) => {
     const rowY = pt + rowH * i;
     const barsBlock = barH * 2 + gap;
     const y = rowY + (rowH - barsBlock) / 2;
-    ctx.fillStyle = lm ? '#2d5233' : '#8fad93'; ctx.font = `${fontSize}px system-ui`; ctx.textAlign = 'right';
+    ctx.fillStyle = '#8fad93'; ctx.font = `${fontSize}px system-ui`; ctx.textAlign = 'right';
     ctx.fillText(c.lbl, pl - 8, y + barH * 0.72);
-    ctx.fillStyle = lm ? 'rgba(46,125,50,.07)' : 'rgba(255,255,255,.04)';
+    ctx.fillStyle = 'rgba(255,255,255,.04)';
     ctx.fillRect(pl, y, cW, barH);
     ctx.fillRect(pl, y + barH + gap, cW, barH);
-    ctx.strokeStyle = lm ? 'rgba(46,125,50,.2)' : 'rgba(76,175,80,.12)'; ctx.lineWidth = 1;
+    ctx.strokeStyle = 'rgba(76,175,80,.12)'; ctx.lineWidth = 1;
     for (let t = 1; t <= 3; t++) {
       const gx = pl + cW * (t * 25) / 100;
       ctx.beginPath(); ctx.moveTo(gx, y); ctx.lineTo(gx, y + barH * 2 + gap); ctx.stroke();
-      ctx.fillStyle = lm ? '#3a6b40' : '#3d5c40'; ctx.font = `8px system-ui`; ctx.textAlign = 'center';
+      ctx.fillStyle = '#3d5c40'; ctx.font = `8px system-ui`; ctx.textAlign = 'center';
       ctx.fillText(t * 25, gx, rowY + rowH - 4);
     }
     const gO = ctx.createLinearGradient(pl, 0, pl + cW, 0);
@@ -347,7 +337,7 @@ function drawWhyScore(progress = 1) {
       const altX  = pl + cW * c.alt  / 100 * progress;
       if (oursX > pl + 30) { ctx.fillStyle = '#fff'; ctx.textAlign = 'right';
         ctx.fillText(c.ours, oursX - 4, y + barH * 0.75); }
-      else { ctx.fillStyle = lm ? '#2e7d32' : '#81c784'; ctx.textAlign = 'left';
+      else { ctx.fillStyle = '#81c784'; ctx.textAlign = 'left';
         ctx.fillText(c.ours, oursX + 4, y + barH * 0.75); }
       if (altX > pl + 30) { ctx.fillStyle = '#fff'; ctx.textAlign = 'right';
         ctx.fillText(c.alt, altX - 4, y + barH + gap + barH * 0.75); }
@@ -366,13 +356,12 @@ function drawImpactChart(progress = 1) {
   const savings = [0,30,80,160,260,390,520,640,760,900,1050,1200];
   const pl = 32, pr = 12, pt = 6, pb = 18;
   const cW = W - pl - pr, cH = H - pt - pb, MAXV = 1300;
-  const lm = isLight();
   ctx.clearRect(0, 0, W, H);
   for (let i = 0; i <= 3; i++) {
     const y = pt + (cH / 3) * i, val = Math.round(MAXV - (MAXV / 3) * i);
-    ctx.strokeStyle = lm ? '#c8dece' : '#2a4231'; ctx.lineWidth = 1;
+    ctx.strokeStyle = '#2a4231'; ctx.lineWidth = 1;
     ctx.beginPath(); ctx.moveTo(pl, y); ctx.lineTo(W - pr, y); ctx.stroke();
-    ctx.fillStyle = lm ? '#3a6b40' : '#7a9e7e'; ctx.font = '8px system-ui'; ctx.textAlign = 'right';
+    ctx.fillStyle = '#7a9e7e'; ctx.font = '8px system-ui'; ctx.textAlign = 'right';
     ctx.fillText('$' + val, pl - 3, y + 3);
   }
   const toX = (i) => pl + (cW / (months.length - 1)) * i;
@@ -393,13 +382,14 @@ function drawImpactChart(progress = 1) {
   ctx.stroke(); ctx.setLineDash([]);
   ctx.restore();
   months.forEach((m, i) => {
-    ctx.fillStyle = lm ? '#3a6b40' : '#6b8d6e'; ctx.font = '7.5px system-ui'; ctx.textAlign = 'center';
+    ctx.fillStyle = '#6b8d6e'; ctx.font = '7.5px system-ui'; ctx.textAlign = 'center';
     ctx.fillText(m, toX(i), H - pb + 10);
   });
   ctx.fillStyle = '#4caf50'; ctx.fillRect(pl, pt - 2, 16, 4);
-  ctx.fillStyle = lm ? '#1b5e20' : '#c8e6c9'; ctx.font = '8px system-ui'; ctx.textAlign = 'left';
+  ctx.fillStyle = '#c8e6c9'; ctx.font = '8px system-ui'; ctx.textAlign = 'left';
   ctx.fillText('Ahorro acumulado', pl + 20, pt + 2);
   ctx.fillStyle = '#ef5350'; ctx.fillRect(pl + 130, pt - 2, 16, 4);
-  ctx.fillStyle = lm ? '#c62828' : '#c8e6c9';
+  ctx.fillStyle = '#c8e6c9';
   ctx.fillText('Costo acumulado', pl + 150, pt + 2);
 }
+
