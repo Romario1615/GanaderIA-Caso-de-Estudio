@@ -5,31 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GanaderIA — Presentación</title>
 <link rel="stylesheet" href="css/styles.css">
-<script type="module">
-  import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: 'base',
-    themeVariables: {
-      primaryColor: '#0f2b12',
-      primaryBorderColor: '#4caf50',
-      primaryTextColor: '#e8f5e9',
-      lineColor: '#66bb6a',
-      secondaryColor: '#081a09',
-      tertiaryColor: '#0a200c',
-      clusterBkg: '#060e07',
-      clusterBorder: '#388e3c',
-      titleColor: '#a5d6a7',
-      edgeLabelBackground: '#060e07',
-      nodeTextColor: '#e8f5e9'
-    }
-  });
-  window.mermaid = mermaid;
-</script>
+<script type="module" src="js/mermaid-init.js"></script>
 </head>
 <body>
 
-<div class="topbar"><div class="topbar-fill" id="barFill" style="width:9.09%"></div></div>
+<div class="topbar"><div class="topbar-fill" id="barFill"></div></div>
 
 <!-- ═══ PANEL DE NAVEGACIÓN ════════════════ -->
 <nav class="nav-panel" id="navPanel">
@@ -43,7 +23,7 @@
     <div class="nav-hint">← → teclas de navegación</div>
   </div>
 </nav>
-<div class="nav-toggle" id="navTog" onclick="togglePanel()">❯</div>
+<div class="nav-toggle" id="navTog">❯</div>
 
 <!-- ═══ S1 · PORTADA ═══════════════════════ -->
 <div class="slide active fin" id="s1">
@@ -512,23 +492,23 @@
           Cómo leer este dashboard
         </div>
         <div class="di-row">
-          <span class="di-dot" style="background:#4caf50"></span>
+          <span class="di-dot"></span>
           <span><strong>Barras horizontales</strong> — producción diaria por vaca. Rojo indica animales bajo el umbral de 22 L.</span>
         </div>
         <div class="di-row">
-          <span class="di-dot" style="background:#64b5f6"></span>
+          <span class="di-dot"></span>
           <span><strong>Pastel izquierdo</strong> — estado sanitario del hato: saludable, en observación o requiere atención inmediata.</span>
         </div>
         <div class="di-row">
-          <span class="di-dot" style="background:#ff9800"></span>
+          <span class="di-dot"></span>
           <span><strong>Pastel derecho</strong> — distribución de alertas activas por área: reproductiva, sanitaria, productiva o alimentaria.</span>
         </div>
         <div class="di-row">
-          <span class="di-dot" style="background:#a5d6a7"></span>
+          <span class="di-dot"></span>
           <span><strong>Línea de tendencia</strong> — evolución del promedio de producción en los últimos 6 meses.</span>
         </div>
         <div class="di-row">
-          <span class="di-dot" style="background:#7b1fa2"></span>
+          <span class="di-dot"></span>
           <span><strong>Barras apiladas</strong> — incidencias semanales agrupadas por tipo para detectar patrones recurrentes.</span>
         </div>
         <div class="di-note">Datos del hato simulado · 124 animales · Finca piloto Manabí</div>
@@ -581,7 +561,7 @@ flowchart TD
 
     <div class="arch-cards">
 
-      <div class="arch-card" style="--ac:#1565c0">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">Sensores IoT</span>
@@ -590,7 +570,7 @@ flowchart TD
         <p class="ac-desc">Capturan temperatura corporal, peso y producción de leche en tiempo real. Envían los datos directamente a PostgreSQL para que el agente pueda analizarlos al instante.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#1e88e5">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">React + Vite</span>
@@ -599,7 +579,7 @@ flowchart TD
         <p class="ac-desc">Interfaz de chat y dashboard. Envía las preguntas del usuario al backend y recibe la respuesta del agente en tiempo real vía SSE (streaming), mostrando cada palabra al instante.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#00897b">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">FastAPI</span>
@@ -608,7 +588,7 @@ flowchart TD
         <p class="ac-desc">Punto de entrada de la API. Valida cada solicitud con Pydantic, invoca al agente LangGraph y retransmite su respuesta en streaming sin bloquear otros usuarios.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#7b1fa2">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">LangGraph Agent</span>
@@ -617,7 +597,7 @@ flowchart TD
         <p class="ac-desc">Cerebro del sistema. Decide qué herramientas usar (consultar BD, buscar conocimiento, generar alerta), gestiona reintentos si algo falla y orquesta la respuesta final.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#f57c00">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">PostgreSQL</span>
@@ -626,7 +606,7 @@ flowchart TD
         <p class="ac-desc">Almacena todo el historial del hato con garantías ACID. El agente lo consulta para recuperar datos reales del animal antes de generar cualquier respuesta.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#ab47bc">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">ChromaDB</span>
@@ -635,7 +615,7 @@ flowchart TD
         <p class="ac-desc">Base de conocimiento veterinario en formato vectorial. El agente busca por significado semántico: "el animal no come" encuentra documentos sobre anorexia bovina automáticamente.</p>
       </div>
 
-      <div class="arch-card" style="--ac:#43a047">
+      <div class="arch-card">
         <div class="ac-head">
           <span class="ac-dot"></span>
           <span class="ac-name">Claude Sonnet</span>
@@ -963,24 +943,24 @@ flowchart TD
   <!-- Fila superior: 4 tarjetas de servicio + tarjeta total -->
   <div class="cost-infra-strip">
     <div class="infra-card">
-      <div class="infra-card-head"><div class="infra-dot" style="background:#1976d2"></div><div class="infra-card-name">VPS · FastAPI + ChromaDB</div></div>
+      <div class="infra-card-head"><div class="infra-dot"></div><div class="infra-card-name">VPS · FastAPI + ChromaDB</div></div>
       <div class="infra-card-note">2 GB RAM · Ubuntu · Digital Ocean / Linode</div>
-      <div class="infra-card-price">$20<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+      <div class="infra-card-price">$20<span class="infra-price-unit">/mes</span></div>
     </div>
     <div class="infra-card">
-      <div class="infra-card-head"><div class="infra-dot" style="background:#f57c00"></div><div class="infra-card-name">PostgreSQL managed</div></div>
+      <div class="infra-card-head"><div class="infra-dot"></div><div class="infra-card-name">PostgreSQL managed</div></div>
       <div class="infra-card-note">1 GB · backups automáticos · SSL incluido</div>
-      <div class="infra-card-price">$15<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+      <div class="infra-card-price">$15<span class="infra-price-unit">/mes</span></div>
     </div>
     <div class="infra-card">
-      <div class="infra-card-head"><div class="infra-dot" style="background:#388e3c"></div><div class="infra-card-name">Frontend · Vercel</div></div>
+      <div class="infra-card-head"><div class="infra-dot"></div><div class="infra-card-name">Frontend · Vercel</div></div>
       <div class="infra-card-note">Free tier · hasta 100 GB transferencia</div>
-      <div class="infra-card-price">$0<span style="font-size:10px;font-weight:400;color:#6b9e6f">/mes</span></div>
+      <div class="infra-card-price">$0<span class="infra-price-unit">/mes</span></div>
     </div>
     <div class="infra-card">
-      <div class="infra-card-head"><div class="infra-dot" style="background:#7b1fa2"></div><div class="infra-card-name">Claude API (variable)</div></div>
+      <div class="infra-card-head"><div class="infra-dot"></div><div class="infra-card-name">Claude API (variable)</div></div>
       <div class="infra-card-note">~$0.012/consulta con caché · 80 consultas/usuario/mes</div>
-      <div class="infra-card-price">~$1<span style="font-size:10px;font-weight:400;color:#6b9e6f">/usuario</span></div>
+      <div class="infra-card-price">~$1<span class="infra-price-unit">/usuario</span></div>
     </div>
     <div class="cost-total-card">
       <div class="cost-total-lbl">Base mensual (sin usuarios)</div>
@@ -1105,7 +1085,7 @@ flowchart TD
       <!-- SVG timeline de sprints -->
       <div class="sprint-timeline">
         <div class="cost-section-ttl"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Línea de tiempo — 8 semanas</div>
-        <svg viewBox="0 0 460 90" style="width:100%;display:block;overflow:visible">
+        <svg viewBox="0 0 460 90" class="sprint-timeline-svg">
           <defs>
             <linearGradient id="spG1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#388e3c"/><stop offset="100%" stop-color="#66bb6a"/></linearGradient>
             <linearGradient id="spG2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1976d2"/><stop offset="100%" stop-color="#64b5f6"/></linearGradient>

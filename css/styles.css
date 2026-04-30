@@ -1420,3 +1420,36 @@ body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;
   .logo-app{height:84px}
   .cv-logos{margin-bottom:.9rem}
 }
+
+/* ── Extracted from inline styles ──────────── */
+
+/* Initial progress bar width (1 of 12 slides) */
+#barFill{width:8.33%}
+
+/* Dashboard info card colored dots */
+.di-row:nth-child(2) .di-dot{background:#4caf50}
+.di-row:nth-child(3) .di-dot{background:#64b5f6}
+.di-row:nth-child(4) .di-dot{background:#ff9800}
+.di-row:nth-child(5) .di-dot{background:#a5d6a7}
+.di-row:nth-child(6) .di-dot{background:#7b1fa2}
+
+/* Architecture card accent colors (--ac used by .arch-card for border/dot) */
+.arch-cards .arch-card:nth-child(1){--ac:#1565c0}
+.arch-cards .arch-card:nth-child(2){--ac:#1e88e5}
+.arch-cards .arch-card:nth-child(3){--ac:#00897b}
+.arch-cards .arch-card:nth-child(4){--ac:#7b1fa2}
+.arch-cards .arch-card:nth-child(5){--ac:#f57c00}
+.arch-cards .arch-card:nth-child(6){--ac:#ab47bc}
+.arch-cards .arch-card:nth-child(7){--ac:#43a047}
+
+/* Infra card dot colors */
+.cost-infra-strip .infra-card:nth-child(1) .infra-dot{background:#1976d2}
+.cost-infra-strip .infra-card:nth-child(2) .infra-dot{background:#f57c00}
+.cost-infra-strip .infra-card:nth-child(3) .infra-dot{background:#388e3c}
+.cost-infra-strip .infra-card:nth-child(4) .infra-dot{background:#7b1fa2}
+
+/* Infra card price unit label */
+.infra-price-unit{font-size:10px;font-weight:400;color:#6b9e6f}
+
+/* Sprint timeline SVG */
+.sprint-timeline-svg{width:100%;display:block;overflow:visible}

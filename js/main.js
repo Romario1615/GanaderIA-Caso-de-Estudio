@@ -30,6 +30,7 @@ const navCtr   = document.getElementById('navCtr');
 const barFill  = document.getElementById('barFill');
 const navPanel = document.getElementById('navPanel');
 const navTog   = document.getElementById('navTog');
+navTog.addEventListener('click', togglePanel);
 
 /* Auto-close panel on small screens */
 if (window.innerWidth <= 860) {
