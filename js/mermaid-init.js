@@ -1,4 +1,3 @@
-import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
 mermaid.initialize({
   startOnLoad: false,
   theme: 'base',
@@ -16,4 +15,3 @@ mermaid.initialize({
     nodeTextColor: '#e8f5e9'
   }
 });
-window.mermaid = mermaid;
